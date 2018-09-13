@@ -13,7 +13,7 @@
                   <MenuItem name="2">
                     <router-link tag="div" to="/ShareBlog">
                         <Icon type="ios-paper"></Icon>
-                        <span>博客</span>
+                        <span>博客云</span>
                     </router-link>
                   </MenuItem>
               </div>
@@ -36,20 +36,12 @@ export default {
   width: 100%;
   z-index: 999;
   .layout-logo {
-    width: 125px;
-    height: 50px;
+    width: 105px;
+    height: 40px;
     border-radius: 3px;
     float: left;
     position: relative;
-    top: 5px;
-    left: 20px;
-    //
-    height: 30px;
-    background: #5b6270;
-    border-radius: 3px;
-    float: left;
-    position: relative;
-    top: 15px;
+    top: 12px;
     left: 20px;
     background: url(../../assets/images/logo_yun.png) no-repeat center;
     background-size: cover;

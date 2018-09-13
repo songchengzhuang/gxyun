@@ -9,16 +9,16 @@
         :trigger="setting.trigger"
         :arrow="setting.arrow">
         <CarouselItem>
-            <div class="demo-carousel">1</div>
+            <div class="demo-carousel">1111111111111111111</div>
         </CarouselItem>
         <CarouselItem>
-            <div class="demo-carousel">2</div>
+            <div class="demo-carousel">2222222222222222</div>
         </CarouselItem>
         <CarouselItem>
-            <div class="demo-carousel">3</div>
+            <div class="demo-carousel">3333333333333333333</div>
         </CarouselItem>
         <CarouselItem>
-            <div class="demo-carousel">4</div>
+            <div class="demo-carousel">44444444444444444444</div>
         </CarouselItem>
     </Carousel>
 </template>

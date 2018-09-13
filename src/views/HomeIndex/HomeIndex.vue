@@ -1,18 +1,26 @@
 <template>
 <Layout class="homeIndex">
-    <Sider class="homeSiderLeft">排行榜</Sider>
+    <Sider class="homeSiderLeft">
+        <h3>排行榜</h3>
+    </Sider>
     <Content class="homeContent">
         <carousel-swiper></carousel-swiper>
+        <link-item></link-item>
     </Content>
-    <Sider class="homeSiderRight">类型</Sider>
+    <Sider class="homeSiderRight">
+        <h3>类别</h3>
+    </Sider>
 </Layout>
 </template>
 <script>
 import CarouselSwiper from "../../components/CarouselSwiper";
+import LinkItem from "./components/LinkItem";
+
 export default {
   name: "HomeIndex",
   components: {
-    CarouselSwiper
+    CarouselSwiper,
+    LinkItem
   },
   data() {
     return {
