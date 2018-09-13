@@ -32,7 +32,7 @@ export default {
     box-shadow: 0px 0px 5px 1px #aaa;
     cursor: pointer;
     &:hover {
-      box-shadow: 0px 0px 5px 1px #aaa inset;
+      box-shadow: 0px 0px 5px 1px #ff6666 inset;
     }
   }
 }
