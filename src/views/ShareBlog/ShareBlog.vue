@@ -1,14 +1,13 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <Content :style="{margin: '88px 20px 0', background: '#fff', minHeight: '700px'}">
     <ul>
       <li v-for="item in userList" :key="item.id">{{"姓名：" + item.id+"————————姓名：" + item.name+"——————————年龄：" + item.age}}</li>
     </ul>
-  </div>
+  </Content>
 </template>
 <script>
 export default {
-  name: "about",
+  name: "ShareBlog",
   data() {
     return {
       userList: []
