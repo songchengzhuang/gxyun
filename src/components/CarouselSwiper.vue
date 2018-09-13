@@ -45,5 +45,6 @@ export default {
 .demo-carousel {
   height: 500px;
   background: darkgray;
+  cursor: pointer;
 }
 </style>

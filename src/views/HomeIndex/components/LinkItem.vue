@@ -27,9 +27,13 @@ export default {
   }
   .LinkItem {
     padding: 10px 16px;
-    margin: 8px 0;
+    margin: 12px 0;
     border-radius: 6px;
-    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px 1px #aaa;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0px 0px 5px 1px #aaa inset;
+    }
   }
 }
 </style>
