@@ -1,8 +1,6 @@
 <template>
   <Content class="shareBlog">
-    <ul>
-      <li v-for="item in userList" :key="item.id">{{"姓名：" + item.id+"————————姓名：" + item.name+"——————————年龄：" + item.age}}</li>
-    </ul>
+      <p v-for="item in userList" :key="item.id">{{"姓名：" + item.id+"————————姓名：" + item.name+"——————————年龄：" + item.age}}</p>
   </Content>
 </template>
 <script>
@@ -34,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 .shareBlog {
   width: 1260px;
-  min-height: 700px;
+  min-height: 90vh;
   margin: 0 auto;
   margin-top: 88px;
   background: #fff;
