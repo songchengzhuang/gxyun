@@ -15,10 +15,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .homeIndex {
-  width: 1200px;
-  min-height: "700px";
-  margin: "88px 20px 0";
-  background: "#fff";
+  width: 1260px;
+  min-height: 700px;
+  margin: 0 auto;
+  margin-top: 88px;
+  background: #fff;
 }
 </style>
-
