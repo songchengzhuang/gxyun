@@ -1,6 +1,6 @@
 <template>
     <!-- 导航 -->
-    <Header :style="{position: 'fixed', width: '100%'}">
+    <Header class="Header">
           <Menu mode="horizontal" theme="dark" active-name="1">
               <div class="layout-logo"></div>
               <div class="layout-nav">
@@ -31,24 +31,37 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.layout-logo {
-  width: 80px;
-  height: 55px;
-  border-radius: 3px;
-  float: left;
-  position: relative;
-  top: 5px;
-  left: 20px;
-  background: url(../../assets/images/logo_yun.png) no-repeat center;
-  background-size: cover;
-}
-.layout-nav {
-  float: left;
-  width: 320px;
-  margin: 0 auto;
-  margin-left: 70px;
-  .ivu-icon {
-    margin-right: 8px;
+.Header {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  .layout-logo {
+    width: 125px;
+    height: 50px;
+    border-radius: 3px;
+    float: left;
+    position: relative;
+    top: 5px;
+    left: 20px;
+    //
+    height: 30px;
+    background: #5b6270;
+    border-radius: 3px;
+    float: left;
+    position: relative;
+    top: 15px;
+    left: 20px;
+    background: url(../../assets/images/logo_yun.png) no-repeat center;
+    background-size: cover;
+  }
+  .layout-nav {
+    float: left;
+    width: 320px;
+    margin: 0 auto;
+    margin-left: 70px;
+    .ivu-icon {
+      margin-right: 8px;
+    }
   }
 }
 </style>

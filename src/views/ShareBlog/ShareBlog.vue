@@ -34,7 +34,7 @@ export default {
   width: 1260px;
   min-height: 90vh;
   margin: 0 auto;
-  margin-top: 88px;
+  margin-top: 80px;
   background: #fff;
 }
 </style>
