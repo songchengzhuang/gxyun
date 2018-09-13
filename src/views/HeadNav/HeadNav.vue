@@ -32,14 +32,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 .layout-logo {
-  width: 100px;
-  height: 30px;
-  background: #5b6270;
+  width: 80px;
+  height: 55px;
   border-radius: 3px;
   float: left;
   position: relative;
-  top: 15px;
+  top: 5px;
   left: 20px;
+  background: url(../../assets/images/logo_yun.png) no-repeat center;
+  background-size: cover;
 }
 .layout-nav {
   float: left;
