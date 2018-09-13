@@ -1,5 +1,5 @@
 <template>
-  <Content :style="{margin: '88px 20px 0', background: '#fff', minHeight: '700px'}">
+  <Content class="homeIndex">
     Content111
   </Content>
 </template>
@@ -13,3 +13,12 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.homeIndex {
+  width: 1200px;
+  min-height: "700px";
+  margin: "88px 20px 0";
+  background: "#fff";
+}
+</style>
+

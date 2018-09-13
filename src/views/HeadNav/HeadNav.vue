@@ -44,7 +44,7 @@ export default {
 }
 .layout-nav {
   float: left;
-  width: 420px;
+  width: 320px;
   margin: 0 auto;
   margin-left: 70px;
   .ivu-icon {

@@ -1,5 +1,5 @@
 <template>
-  <Content :style="{margin: '88px 20px 0', background: '#fff', minHeight: '700px'}">
+  <Content class="shareBlog">
     <ul>
       <li v-for="item in userList" :key="item.id">{{"姓名：" + item.id+"————————姓名：" + item.name+"——————————年龄：" + item.age}}</li>
     </ul>
@@ -32,9 +32,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.about {
-  ul {
-    color: chocolate;
-  }
+.shareBlog {
+  width: 1200px;
+  min-height: "700px";
+  margin: "88px 20px 0";
+  background: "#fff";
 }
 </style>
