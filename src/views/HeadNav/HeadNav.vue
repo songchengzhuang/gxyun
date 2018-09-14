@@ -17,6 +17,11 @@
                     </router-link>
                   </MenuItem>
               </div>
+              <p class="navMotto">山不在高，有仙则名。水不在深，有龙则灵。</p>
+              <Input v-model="searchLink" icon="ios-search" :maxlength="16" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 200px"></Input>
+              <div class="userLogin">
+                <span>登录</span>
+              </div>
           </Menu>
       </Header>
 </template>
@@ -25,14 +30,21 @@ export default {
   name: "HeadNav",
   data() {
     return {
-      //
+      searchLink: ""
     };
+  },
+  methods: {
+    // 搜索云链接
+    searchYunLink() {
+      console.log(this.searchLink);
+    }
   }
 };
 </script>
 <style lang="scss" scoped>
 .Header {
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 999;
   .layout-logo {
@@ -53,6 +65,25 @@ export default {
     margin-left: 70px;
     .ivu-icon {
       margin-right: 8px;
+    }
+  }
+  .navMotto {
+    float: left;
+    width: 350px;
+    color: #fff;
+  }
+  .userLogin {
+    color: #fff;
+    float: right;
+    margin-right: 26px;
+    cursor: pointer;
+    span {
+      padding: 8px 12px;
+      border-radius: 6px;
+      background-color: #6c7893;
+      &:hover {
+        background-color: #6c7893;
+      }
     }
   }
 }
