@@ -36,14 +36,14 @@ export default {
   width: 100%;
   z-index: 999;
   .layout-logo {
-    width: 105px;
+    width: 130px;
     height: 40px;
     border-radius: 3px;
     float: left;
     position: relative;
     top: 12px;
     left: 20px;
-    background: url(../../assets/images/logo_yun.png) no-repeat center;
+    background: #6c7893 url(../../assets/images/logo_yun.png) no-repeat center;
     background-size: cover;
   }
   .layout-nav {
