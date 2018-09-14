@@ -1,11 +1,17 @@
 <template>
     <!-- 链接item -->
     <div class="LinkList">
-        <h1>最新共享</h1>
         <div class="LinkItem" v-for="item in linkListArr" :key="item">
+          <div class="LinkItemLeft">
             <h2>关于vue分享博客的链接关于vue分享博客的链接关于vue分享博客的链接关于vue分享博客的链接</h2>
             <p class="linkTxt">https://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yAhttps://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yAhttps://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yAhttps://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yAhttps://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yA</p>
             <p class="authorTxt"><span>作者：scz</span><span>类别：vue</span><span>时间：2018-09-13</span></p>
+          </div>
+          <div class="LinkItemRight">
+            <a href="https://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yA" target="_blank">
+              <Icon type="ios-link" size="42" color="#e6e6e6"></Icon>
+            </a>
+          </div>
         </div>
     </div>
 </template>
@@ -14,7 +20,7 @@ export default {
   name: "LinkItem",
   data() {
     return {
-      linkListArr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+      linkListArr: [1, 2, 3, 4, 5, 6, 7, 8, 9]
     };
   }
 };
@@ -22,16 +28,12 @@ export default {
 <style lang="scss" scoped>
 .LinkList {
   padding: 16px 20px;
-  h1 {
-    color: #000;
-    margin: 10px 0;
-  }
   .LinkItem {
-    padding: 10px 16px;
+    padding: 16px 16px 10px 16px;
     margin: 12px 0;
     border-radius: 6px;
     box-shadow: 0px 0px 5px 1px #aaa;
-    cursor: pointer;
+    position: relative;
     &:hover {
       box-shadow: 0px 0px 5px 1px #ff6666 inset;
       h2 {
@@ -47,41 +49,60 @@ export default {
         color: #333;
       }
     }
-    h2 {
-      font-size: 20px;
-      line-height: 20px;
-      color: #333;
-      margin-bottom: 16px;
-      letter-spacing: 1px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      text-overflow: ellipsis;
-      -ms-text-overflow: ellipsis;
-      -o-text-overflow: ellipsis;
+    .LinkItemLeft {
+      margin-right: 100px;
+      h2 {
+        font-size: 20px;
+        line-height: 20px;
+        color: #333;
+        margin-bottom: 16px;
+        letter-spacing: 1px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+      }
+      .linkTxt {
+        font-size: 16px;
+        line-height: 18px;
+        color: #808080;
+        margin-bottom: 12px;
+        display: -webkit-box;
+        overflow: hidden;
+        white-space: normal !important;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .authorTxt {
+        font-size: 12px;
+        line-height: 12px;
+        color: #4285f4;
+        span {
+          display: inline-block;
+          margin-right: 26px;
+        }
+      }
     }
-    .linkTxt {
-      font-size: 16px;
-      line-height: 18px;
-      color: #808080;
-      margin-bottom: 8px;
-      display: -webkit-box;
+
+    .LinkItemRight {
+      position: absolute;
+      top: 50%;
+      right: 26px;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
       overflow: hidden;
-      white-space: normal !important;
-      text-overflow: ellipsis;
-      word-wrap: break-word;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-    .authorTxt {
-      font-size: 12px;
-      line-height: 12px;
-      color: #4285f4;
-      span {
-        display: inline-block;
-        margin-right: 26px;
+      .ivu-icon {
+        padding: 6px;
+        cursor: pointer;
+        &:hover {
+          color: #ccc !important;
+        }
       }
     }
   }

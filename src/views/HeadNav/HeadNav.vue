@@ -19,7 +19,7 @@
               </div>
               <p class="navMotto">山不在高，有仙则名。水不在深，有龙则灵。</p>
               <div class="userLogin">
-                <span>登录</span>
+                <span><Icon type="ios-pricetags-outline" size="16"></Icon>我的分享</span><span><Icon type="ios-redo-outline" size="16"></Icon>登录</span>
               </div>
               <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 260px"></Input>
           </Menu>
@@ -62,7 +62,7 @@ export default {
     position: relative;
     top: 12px;
     left: 20px;
-    background: #6c7893 url(../../assets/images/logo_yun.png) no-repeat center;
+    background: url(../../assets/images/logo_yun.png) no-repeat center;
     background-size: cover;
   }
   .layout-nav {
@@ -91,14 +91,18 @@ export default {
   .userLogin {
     color: #fff;
     float: right;
-    margin-right: 26px;
+    margin-right: 23px;
     cursor: pointer;
     span {
-      padding: 8px 12px;
+      padding: 8px 12px 8px 10px;
+      margin-right: 16px;
       border-radius: 6px;
       background-color: #6c7893;
       &:hover {
-        background-color: #6c7893;
+        background-color: #7b869e;
+      }
+      .ivu-icon {
+        margin-right: 5px;
       }
     }
   }
