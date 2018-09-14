@@ -18,10 +18,10 @@
                   </MenuItem>
               </div>
               <p class="navMotto">山不在高，有仙则名。水不在深，有龙则灵。</p>
-              <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 200px"></Input>
               <div class="userLogin">
                 <span>登录</span>
               </div>
+              <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 260px"></Input>
           </Menu>
       </Header>
 </template>
@@ -52,6 +52,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
+  min-width: 1260px;
   z-index: 999;
   .layout-logo {
     width: 130px;
@@ -66,7 +67,7 @@ export default {
   }
   .layout-nav {
     float: left;
-    width: 320px;
+    width: 300px;
     margin: 0 auto;
     margin-left: 70px;
     .ivu-icon {
@@ -74,12 +75,17 @@ export default {
     }
   }
   .navMotto {
-    float: left;
-    width: 350px;
     color: #fff;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -175px;
   }
 
   .searchLink {
+    float: right;
+    margin-top: 16px;
+    margin-right: 80px;
     cursor: pointer;
   }
   .userLogin {
@@ -95,6 +101,18 @@ export default {
         background-color: #6c7893;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1330px) {
+  .navMotto {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .searchLink {
+    display: none;
   }
 }
 </style>
