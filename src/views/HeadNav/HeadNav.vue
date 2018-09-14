@@ -18,7 +18,7 @@
                   </MenuItem>
               </div>
               <p class="navMotto">山不在高，有仙则名。水不在深，有龙则灵。</p>
-              <Input v-model="searchLink" icon="ios-search" :maxlength="16" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 200px"></Input>
+              <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 200px"></Input>
               <div class="userLogin">
                 <span>登录</span>
               </div>
@@ -36,12 +36,18 @@ export default {
   methods: {
     // 搜索云链接
     searchYunLink() {
-      console.log(this.searchLink);
+      if (this.searchLink) {
+        console.log(this.searchLink);
+      }
     }
   }
 };
 </script>
 <style lang="scss" scoped>
+.ivu-menu-horizontal {
+  height: 64px;
+  line-height: 64px;
+}
 .Header {
   position: fixed;
   top: 0;
@@ -71,6 +77,10 @@ export default {
     float: left;
     width: 350px;
     color: #fff;
+  }
+
+  .searchLink {
+    cursor: pointer;
   }
   .userLogin {
     color: #fff;
