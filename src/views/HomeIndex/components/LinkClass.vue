@@ -32,11 +32,11 @@ export default {
     &:hover {
       color: #d41b1b;
       /* 渐变色 */
-      background-image: linear-gradient(
-        top,
-        rgba(231, 66, 72, 0),
-        rgba(231, 66, 72, 0.8)
-      );
+      //   background-image: linear-gradient(
+      //     top,
+      //     rgba(231, 66, 72, 0),
+      //     rgba(231, 66, 72, 0.8)
+      //   );
     }
   }
   &:after {
