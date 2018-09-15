@@ -1,27 +1,35 @@
 <template>
   <div id="app" class="layout">
     <Layout>
-      <head-nav></head-nav>
+      <head-nav @writeLinkModal="writeLinkModal"></head-nav>
       <keep-alive>
         <router-view/>
       </keep-alive>
       <footer-index></footer-index>
   </Layout>
+  <write-link-modal ref="linkModa"></write-link-modal>
 </div>
 </template>
 <script>
 import HeadNav from "./views/HeadNav/HeadNav";
 import FooterIndex from "./views/FooterIndex/FooterIndex";
+import WriteLinkModal from "./views/HomeIndex/components/WriteLinkModal";
 export default {
   name: "App",
   components: {
     HeadNav,
-    FooterIndex
+    FooterIndex,
+    WriteLinkModal
   },
   data() {
     return {
       //
     };
+  },
+  methods: {
+    writeLinkModal() {
+      this.$refs.linkModa.showModal();
+    }
   }
 };
 </script>

@@ -20,7 +20,7 @@
               </div>
               <p class="navMotto">山不在高，有仙则名。水不在深，有龙则灵。</p>
               <div class="userLogin">
-                <span><Icon type="ios-pricetags-outline" size="16"></Icon>我的分享</span><span><Icon type="ios-redo-outline" size="16"></Icon>登录</span>
+                <span @click="writeLinkModal"><Icon type="ios-pricetags-outline" size="16"></Icon>我的分享</span><span><Icon type="ios-redo-outline" size="16"></Icon>登录</span>
               </div>
               <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 260px"></Input>
           </Menu>
@@ -40,6 +40,9 @@ export default {
       if (this.searchLink) {
         console.log(this.searchLink);
       }
+    },
+    writeLinkModal() {
+      this.$emit("writeLinkModal");
     }
   }
 };

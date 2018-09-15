@@ -22,7 +22,7 @@
 import CarouselSwiper from "../../components/CarouselSwiper";
 import AdvertisUnit from "../../components/AdvertisUnit";
 import LinkItem from "./components/LinkItem";
-import linkRankingList from "./components/linkRankingList";
+import LinkRankingList from "./components/LinkRankingList";
 import LinkClass from "./components/LinkClass";
 
 export default {
@@ -30,7 +30,7 @@ export default {
   components: {
     CarouselSwiper,
     LinkItem,
-    linkRankingList,
+    LinkRankingList,
     LinkClass,
     AdvertisUnit
   },
@@ -39,7 +39,8 @@ export default {
       imgSrc01: "http://sczgodofwar.top/gxyImges/rightImg01.png",
       imgSrc02: "http://sczgodofwar.top/gxyImges/rightImg02.jpg"
     };
-  }
+  },
+  methods: {}
 };
 </script>
 <style lang="scss" scoped>
