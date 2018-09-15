@@ -40,10 +40,11 @@ export default {
         font-size: 20px;
         line-height: 20px;
         /*图片文字样式*/
-        background: url(../../../assets/images/textBg.png) repeat center;
+        background: #cc1a20 url(../../../assets/images/textBg.png) repeat center;
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
         background-clip: text;
+        cursor: pointer;
       }
       .linkTxt {
         color: #333;

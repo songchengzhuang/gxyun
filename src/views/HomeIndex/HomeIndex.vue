@@ -11,22 +11,28 @@
         <link-item></link-item>
     </Content>
     <Sider class="homeSiderRight">
-        <div class="siderRightDiv"></div>
+        <advertis-unit></advertis-unit>
         <h2>分类</h2>
+        <link-class></link-class>
+        <div class="siderRightDiv"></div>
     </Sider>
 </Layout>
 </template>
 <script>
 import CarouselSwiper from "../../components/CarouselSwiper";
+import AdvertisUnit from "../../components/AdvertisUnit";
 import LinkItem from "./components/LinkItem";
 import linkRankingList from "./components/linkRankingList";
+import LinkClass from "./components/LinkClass";
 
 export default {
   name: "HomeIndex",
   components: {
     CarouselSwiper,
     LinkItem,
-    linkRankingList
+    linkRankingList,
+    LinkClass,
+    AdvertisUnit
   },
   data() {
     return {
@@ -57,7 +63,7 @@ export default {
     h2 {
       color: #000;
       text-align: center;
-      margin-top: 25px;
+      margin: 27px 0;
     }
   }
   .homeSiderLeft,
@@ -76,7 +82,7 @@ export default {
     h2 {
       color: #000;
       text-align: center;
-      margin-top: 25px;
+      margin: 27px 0;
     }
   }
 
