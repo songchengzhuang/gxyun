@@ -55,11 +55,8 @@ export default {
         color: #333;
         margin-bottom: 16px;
         letter-spacing: 1px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
         overflow: hidden;
         white-space: nowrap;
-        text-overflow: ellipsis;
         text-overflow: ellipsis;
         -ms-text-overflow: ellipsis;
         -o-text-overflow: ellipsis;
