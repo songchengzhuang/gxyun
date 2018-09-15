@@ -15,8 +15,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .LinkClass {
-  padding: 10px 8px;
-  margin-bottom: 12px;
+  padding: 10px 8px 22px 8px;
   background: #f5f7f9;
   li {
     float: left;

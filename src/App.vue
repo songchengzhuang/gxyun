@@ -33,4 +33,9 @@ export default {
   border-radius: 4px;
   overflow: hidden;
 }
+
+.ivu-layout {
+  background: url(./assets/images/indexBg01.jpg);
+  background-size: 25%;
+}
 </style>

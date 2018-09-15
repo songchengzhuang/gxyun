@@ -2,7 +2,8 @@
     <!-- 导航 -->
     <Header class="Header">
           <Menu mode="horizontal" theme="dark" active-name="1">
-              <div class="layout-logo"></div>
+              <!-- <div class="layout-logo"></div> -->
+              <router-link class="layout-logo" tag="div" to="/"></router-link>
               <div class="layout-nav">
                   <MenuItem name="1">
                     <router-link tag="span" to="/">
@@ -64,6 +65,7 @@ export default {
     left: 20px;
     background: url(../../assets/images/logo_yun.png) no-repeat center;
     background-size: cover;
+    cursor: pointer;
   }
   .layout-nav {
     float: left;
