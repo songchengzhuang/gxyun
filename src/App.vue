@@ -34,8 +34,8 @@ export default {
   overflow: hidden;
 }
 
-.ivu-layout {
+.layout > .ivu-layout {
   background: url(./assets/images/indexBg01.jpg);
-  background-size: 25%;
+  background-size: 33%;
 }
 </style>

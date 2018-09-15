@@ -48,7 +48,7 @@ export default {
   min-height: 90vh;
   margin: 0 auto;
   margin-top: 80px;
-  background: #f5f7f9;
+  background-color: rgba(245, 247, 249, 0.9);
   .homeSiderLeft {
     width: 230px !important;
     height: 900px;
@@ -74,6 +74,7 @@ export default {
     z-index: 1;
   }
   .homeSiderRight {
+    height: 1200px;
     h2 {
       color: #000;
       text-align: center;
