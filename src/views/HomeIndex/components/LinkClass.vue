@@ -16,6 +16,7 @@ export default {
 <style lang="scss" scoped>
 .LinkClass {
   padding: 10px 8px;
+  margin-bottom: 12px;
   background: #f5f7f9;
   li {
     float: left;

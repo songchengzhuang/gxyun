@@ -11,10 +11,10 @@
         <link-item></link-item>
     </Content>
     <Sider class="homeSiderRight">
-        <advertis-unit></advertis-unit>
+        <advertis-unit :imgSrc="imgSrc02"></advertis-unit>
         <h2>分类</h2>
         <link-class></link-class>
-        <div class="siderRightDiv"></div>
+        <advertis-unit :imgSrc="imgSrc01"></advertis-unit>
     </Sider>
 </Layout>
 </template>
@@ -36,7 +36,8 @@ export default {
   },
   data() {
     return {
-      //
+      imgSrc01: "http://sczgodofwar.top/gxyImges/rightImg01.png",
+      imgSrc02: "http://sczgodofwar.top/gxyImges/rightImg02.jpg"
     };
   }
 };
@@ -73,12 +74,6 @@ export default {
     z-index: 1;
   }
   .homeSiderRight {
-    .siderRightDiv {
-      width: 100%;
-      height: 260px;
-      background: url(../../assets/images/logo_yun.png) no-repeat center;
-      background-size: 80%;
-    }
     h2 {
       color: #000;
       text-align: center;

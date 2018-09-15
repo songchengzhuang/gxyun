@@ -1,14 +1,20 @@
 <template>
     <div class="AdvertisUnit">
-        <img src="../assets/images/lunbo03.png" alt="图片">
+        <img :src="imgSrcLink" alt="图片">
     </div>
 </template>
 <script>
 export default {
   name: "AdvertisUnit",
+  props: {
+    imgSrc: {
+      type: String,
+      default: "http://sczgodofwar.top/gxyImges/logo_yun.png"
+    }
+  },
   data() {
     return {
-      //
+      imgSrcLink: this.imgSrc
     };
   }
 };

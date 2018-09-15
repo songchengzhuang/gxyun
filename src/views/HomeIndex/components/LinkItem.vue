@@ -46,9 +46,6 @@ export default {
         background-clip: text;
         cursor: pointer;
       }
-      .linkTxt {
-        color: #333;
-      }
     }
     .LinkItemLeft {
       margin-right: 100px;
@@ -68,7 +65,7 @@ export default {
         -o-text-overflow: ellipsis;
       }
       .linkTxt {
-        font-size: 16px;
+        font-size: 15px;
         line-height: 18px;
         color: #808080;
         margin-bottom: 12px;
