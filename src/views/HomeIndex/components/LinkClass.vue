@@ -1,6 +1,6 @@
 <template>
     <ul class="LinkClass">
-        <li v-for="item in [1,3,2,4,5,6]" :key="item">{{item+"Vue"}}</li>
+        <li v-for="item in classList" :key="item" v-text="item"></li>
     </ul>
 </template>
 <script>
@@ -8,7 +8,19 @@ export default {
   name: "LinkClass",
   data() {
     return {
-      //
+      classList: [
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "JQuery",
+        "ES6",
+        "Vue",
+        "React",
+        "Angular",
+        "webpack",
+        "Node",
+        "Sass"
+      ]
     };
   }
 };
@@ -22,9 +34,8 @@ export default {
     list-style: none;
     font-size: 14px;
     font-weight: 600;
-    letter-spacing: 2px;
-    padding: 6px 12px;
-    margin: 6px 12px;
+    padding: 6px 10px;
+    margin: 6px 10px;
     box-shadow: 1px 1px 1px #fff;
     border-radius: 3px;
     background: #fff;

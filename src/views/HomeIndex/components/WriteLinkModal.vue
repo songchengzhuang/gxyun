@@ -5,8 +5,6 @@
         @on-ok="saveOk"
         @on-cancel="cancel">
         <p>分享云链接</p>
-        <p>分享云链接</p>
-        <p>分享云链接</p>
     </Modal>
 </template>
 <script>

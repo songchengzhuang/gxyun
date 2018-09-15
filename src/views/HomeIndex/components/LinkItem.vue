@@ -1,14 +1,14 @@
 <template>
     <!-- 链接item -->
     <div class="LinkList">
-        <div class="LinkItem" v-for="item in linkListArr" :key="item">
+        <div class="LinkItem" v-for="(item,index) in linkListArr" :key="index">
           <div class="LinkItemLeft">
-            <h2>关于vue分享博客的链接关于vue分享博客的链接关于vue分享博客的链接关于vue分享博客的链接</h2>
-            <p class="linkTxt">https://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yAhttps://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yAhttps://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yAhttps://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yAhttps://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yA</p>
-            <p class="authorTxt"><span>作者：scz</span><span>类别：vue</span><span>时间：2018-09-13</span></p>
+            <h2 v-text="item.title"></h2>
+            <p class="linkTxt" v-text="item.url"></p>
+            <p class="authorTxt"><span v-text="'作者：' + item.author">scz</span><span v-text="'类别：' + item.class"></span><span v-text="'时间：' + item.time"></span></p>
           </div>
           <div class="LinkItemRight">
-            <a href="https://pan.baidu.com/s/1CpT0vR67D0Q0hBXss0e2yA" target="_blank">
+            <a :href="item.url" target="_blank">
               <Icon type="ios-link" size="42" color="#e6e6e6"></Icon>
             </a>
           </div>
@@ -20,7 +20,64 @@ export default {
   name: "LinkItem",
   data() {
     return {
-      linkListArr: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      linkListArr: [
+        {
+          url: "https://pan.baidu.com/s/1M11eMos98td7QBjusA6wiQ",
+          title: "Vue.js 源码全方位深入解析",
+          author: "乘风追月",
+          class: "Vue",
+          time: "2018-09-15"
+        },
+        {
+          url: "https://pan.baidu.com/s/16b_bfqeSGyLimqjXV-8UwA",
+          title: "打造扛得住的MySQL数据库架构",
+          author: "夜星空",
+          class: "MySQL",
+          time: "2018-09-15"
+        },
+        {
+          url: "https://pan.baidu.com/s/1JD3_68LRBRBGsiycUrx3MQ",
+          title: "BAT各大公司面试题",
+          author: "知乎其微",
+          class: "React",
+          time: "2018-09-15"
+        },
+        {
+          url: "https://pan.baidu.com/s/13wrlboqorOMjjaI0dZDTwQ",
+          title: "HTML5与CSS3实现动态网页系列课程",
+          author: "小Q",
+          class: "HTML5",
+          time: "2018-09-15"
+        },
+        {
+          url: "https://pan.baidu.com/s/1bxAttYbO9zPFQzwPa5QwdQ",
+          title: "Androad 架构",
+          author: "爱学习的笨蛋",
+          class: "Androad",
+          time: "2018-09-15"
+        },
+        {
+          url: "https://pan.baidu.com/s/1Jawtn8MdDHa16gyifOvrBg",
+          title: "ES6零基础教学 解析彩票项目",
+          author: "小万酱",
+          class: "ES6",
+          time: "2018-09-15"
+        },
+        {
+          url: "https://pan.baidu.com/s/1-iu1gU416aphMjSVYTRMfw",
+          title: "2019前端跳槽面试必备技巧",
+          author: "奔跑的小前端",
+          class: "面试",
+          time: "2018-09-15"
+        },
+        {
+          url: "https://pan.baidu.com/s/1MYj-2Idw007zTYIFRbnmaA",
+          title: "网易云python",
+          author: "洛雨美",
+          class: "python",
+          time: "2018-09-15"
+        }
+      ]
     };
   }
 };
@@ -29,7 +86,7 @@ export default {
 .LinkList {
   padding: 16px 20px;
   .LinkItem {
-    padding: 16px 16px 10px 16px;
+    padding: 16px 26px 12px 26px;
     margin: 12px 0;
     border-radius: 6px;
     box-shadow: 0px 0px 5px 1px #aaa;

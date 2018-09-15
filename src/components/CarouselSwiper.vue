@@ -36,7 +36,7 @@ export default {
 .demo-carousel {
   height: 260px;
   background: fff;
-  background-size: 100%;
+  background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
   cursor: pointer;
