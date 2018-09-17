@@ -1,6 +1,7 @@
 <template>
   <Content class="shareBlog">
-      <p v-for="item in userList" :key="item.id">{{"姓名：" + item.id+"————————姓名：" + item.name+"——————————年龄：" + item.age}}</p>
+    <h2>敬请期待...</h2>
+    <p v-for="item in userList" :key="item.id">{{"姓名：" + item.id+"————————姓名：" + item.name+"——————————年龄：" + item.age}}</p>
   </Content>
 </template>
 <script>
