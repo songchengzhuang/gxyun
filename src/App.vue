@@ -44,6 +44,11 @@ export default {
         this.$refs.loginModa.showModal();
       }
     }
+  },
+  created() {
+    console.log("****************************************");
+    console.log("打造属于自己的人生吧！");
+    console.log("****************************************");
   }
 };
 </script>

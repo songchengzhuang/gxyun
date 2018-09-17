@@ -48,11 +48,6 @@ export default {
     writeLinkModal(type) {
       this.$emit("writeLinkModal", type);
     }
-  },
-  created() {
-    console.log("****************************************");
-    console.log("打造属于自己的人生吧！");
-    console.log("****************************************");
   }
 };
 </script>
