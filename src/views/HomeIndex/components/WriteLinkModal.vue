@@ -20,10 +20,10 @@ export default {
       this.modalShow = true;
     },
     saveOk() {
-      this.$Message.info("Clicked ok");
+      this.$Message.info("保存分享");
     },
     cancel() {
-      this.$Message.info("Clicked cancel");
+      this.$Message.info("退出分享");
     }
   }
 };
