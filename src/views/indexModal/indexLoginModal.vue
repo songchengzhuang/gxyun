@@ -14,12 +14,13 @@
 </template>
 <script>
 export default {
-  name: "WriteLinkModal",
+  name: "indexLogin",
   data() {
     return {
       modalShow: false,
       linkTitle: "",
-      linkUrl: ""
+      linkUrl: "",
+      linkPwa: ""
     };
   },
   methods: {

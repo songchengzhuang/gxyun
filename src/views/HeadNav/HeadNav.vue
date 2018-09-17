@@ -20,7 +20,11 @@
               </div>
               <p class="navMotto">山不在高，有仙则名。水不在深，有龙则灵。</p>
               <div class="userLogin">
-                <span @click="writeLinkModal"><Icon type="ios-pricetags-outline" size="16"></Icon>我的分享</span><span><Icon type="ios-redo-outline" size="16"></Icon>登录</span>
+                <span class="shareBtn" @click="writeLinkModal('linkModa')"><Icon type="ios-pricetags-outline" size="16"></Icon>我的分享</span>
+                <span class="loginBtn">
+                  <span @click="writeLinkModal('loginModa')"><Icon type="ios-redo-outline" size="16"></Icon>登录</span> | 
+                  <span @click="writeLinkModal('registerModa')"><Icon type="social-octocat" size="16"></Icon>注册</span>
+                </span>
               </div>
               <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 260px"></Input>
           </Menu>
@@ -41,8 +45,8 @@ export default {
         console.log(this.searchLink);
       }
     },
-    writeLinkModal() {
-      this.$emit("writeLinkModal");
+    writeLinkModal(type) {
+      this.$emit("writeLinkModal", type);
     }
   }
 };
@@ -98,7 +102,8 @@ export default {
     float: right;
     margin-right: 23px;
     cursor: pointer;
-    span {
+    .shareBtn,
+    .loginBtn {
       padding: 8px 12px 8px 10px;
       margin-right: 16px;
       border-radius: 6px;
@@ -108,6 +113,11 @@ export default {
       }
       .ivu-icon {
         margin-right: 5px;
+      }
+    }
+    .loginBtn span {
+      &:hover {
+        color: #515a6e;
       }
     }
   }

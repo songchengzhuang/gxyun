@@ -8,18 +8,24 @@
       <footer-index></footer-index>
   </Layout>
   <write-link-modal ref="linkModa"></write-link-modal>
+  <index-register-modal ref="registerModa"></index-register-modal>
+  <index-login-modal ref="loginModa"></index-login-modal>
 </div>
 </template>
 <script>
 import HeadNav from "./views/HeadNav/HeadNav";
 import FooterIndex from "./views/FooterIndex/FooterIndex";
-import WriteLinkModal from "./views/HomeIndex/components/WriteLinkModal";
+import WriteLinkModal from "./views/indexModal/WriteLinkModal";
+import indexRegisterModal from "./views/indexModal/indexRegisterModal";
+import indexLoginModal from "./views/indexModal/indexLoginModal";
 export default {
   name: "App",
   components: {
     HeadNav,
     FooterIndex,
-    WriteLinkModal
+    WriteLinkModal,
+    indexRegisterModal,
+    indexLoginModal
   },
   data() {
     return {
@@ -27,8 +33,16 @@ export default {
     };
   },
   methods: {
-    writeLinkModal() {
-      this.$refs.linkModa.showModal();
+    writeLinkModal(type) {
+      if (type === "linkModa") {
+        this.$refs.linkModa.showModal();
+      }
+      if (type === "registerModa") {
+        this.$refs.registerModa.showModal();
+      }
+      if (type === "loginModa") {
+        this.$refs.loginModa.showModal();
+      }
     }
   }
 };
