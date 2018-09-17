@@ -8,6 +8,7 @@
         <div class="fxLinkModal">
             <Input class="linkInput" v-model="linkTitle" placeholder="请填写云标题" clearable style="width: 100%"></Input>
             <Input class="linkInput" v-model="linkUrl" placeholder="请填写云链接" clearable style="width: 100%"></Input>
+            <Input class="linkInput" v-model="linkPwa" placeholder="请填写云密码" clearable style="width: 100%"></Input>
         </div>
     </Modal>
 </template>
@@ -36,7 +37,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .fxLinkModal {
-  .linkInput:first-child {
+  .linkInput:first-child,
+  .linkInput:nth-child(2) {
     width: 100%;
     margin-bottom: 16px;
   }
