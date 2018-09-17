@@ -49,7 +49,7 @@ export default {
   min-height: 90vh;
   margin: 0 auto;
   margin-top: 80px;
-  background: rgba(245, 247, 249, 0.9);
+  background: rgba(245, 247, 249, 0.5);
   .homeSiderLeft {
     width: 230px !important;
     height: 900px;
@@ -84,6 +84,7 @@ export default {
   }
 
   .homeContent {
+    width: 790px;
     background: #fff;
     h1 {
       color: #000;

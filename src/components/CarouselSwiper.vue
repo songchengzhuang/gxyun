@@ -8,8 +8,14 @@
         :radius-dot="setting.radiusDot"
         :trigger="setting.trigger"
         :arrow="setting.arrow">
-        <CarouselItem v-for="item in [1, 2, 3]" :key="item">
+        <CarouselItem>
             <div class="demo-carousel" :style="{backgroundImage: 'url(' + require('../assets/images/lunbo02.jpg') + ')'}"></div>
+        </CarouselItem>
+        <CarouselItem>
+            <div class="demo-carousel" :style="{backgroundImage: 'url(' + require('../assets/images/lunbo01.jpg') + ')'}"></div>
+        </CarouselItem>
+        <CarouselItem>
+            <div class="demo-carousel" :style="{backgroundImage: 'url(' + require('../assets/images/lunbo03.jpg') + ')'}"></div>
         </CarouselItem>
     </Carousel>
 </template>
@@ -35,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 .demo-carousel {
   height: 260px;
-  background: fff;
+  background: #fff;
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;

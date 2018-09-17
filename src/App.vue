@@ -44,6 +44,6 @@ export default {
 
 .layout > .ivu-layout {
   background: url(./assets/images/indexBg01.jpg);
-  background-size: 33%;
+  background-size: 33.5%;
 }
 </style>

@@ -2,6 +2,7 @@
     <!-- 链接item -->
     <div class="LinkList">
         <div class="LinkItem" v-for="(item,index) in linkListArr" :key="index">
+          <div class="linkImg" v-text="item.title.slice(0,1)"></div>
           <div class="LinkItemLeft">
             <h2 v-text="item.title"></h2>
             <p class="linkTxt" v-text="item.url"></p>
@@ -33,7 +34,7 @@ export default {
           title: "打造扛得住的MySQL数据库架构",
           author: "夜星空",
           class: "MySQL",
-          time: "2018-09-15"
+          time: "2018-09-13"
         },
         {
           url: "https://pan.baidu.com/s/1JD3_68LRBRBGsiycUrx3MQ",
@@ -47,14 +48,14 @@ export default {
           title: "HTML5与CSS3实现动态网页系列课程",
           author: "小Q",
           class: "HTML5",
-          time: "2018-09-15"
+          time: "2018-09-11"
         },
         {
           url: "https://pan.baidu.com/s/1bxAttYbO9zPFQzwPa5QwdQ",
           title: "Androad 架构",
           author: "爱学习的笨蛋",
           class: "Androad",
-          time: "2018-09-15"
+          time: "2018-08-21"
         },
         {
           url: "https://pan.baidu.com/s/1Jawtn8MdDHa16gyifOvrBg",
@@ -68,14 +69,14 @@ export default {
           title: "2019前端跳槽面试必备技巧",
           author: "奔跑的小前端",
           class: "面试",
-          time: "2018-09-15"
+          time: "2018-09-13"
         },
         {
           url: "https://pan.baidu.com/s/1MYj-2Idw007zTYIFRbnmaA",
           title: "网易云python",
           author: "洛雨美",
           class: "python",
-          time: "2018-09-15"
+          time: "2018-07-25"
         }
       ]
     };
@@ -86,7 +87,7 @@ export default {
 .LinkList {
   padding: 16px 20px;
   .LinkItem {
-    padding: 16px 26px 12px 26px;
+    padding: 16px 36px 12px 26px;
     margin: 12px 0;
     border-radius: 6px;
     box-shadow: 0px 0px 5px 1px #aaa;
@@ -104,13 +105,30 @@ export default {
         cursor: pointer;
       }
     }
+    .linkImg {
+      width: 60px;
+      height: 60px;
+      font-size: 22px;
+      font-weight: 600;
+      color: #000;
+      text-align: center;
+      line-height: 60px;
+      border-radius: 6px;
+      background: #f2f2f2;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      overflow: hidden;
+    }
     .LinkItemLeft {
+      margin-left: 80px;
       margin-right: 100px;
       h2 {
         font-size: 20px;
         line-height: 20px;
         color: #333;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         letter-spacing: 1px;
         overflow: hidden;
         white-space: nowrap;
@@ -119,10 +137,10 @@ export default {
         -o-text-overflow: ellipsis;
       }
       .linkTxt {
-        font-size: 15px;
+        font-size: 14px;
         line-height: 18px;
         color: #808080;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         display: -webkit-box;
         overflow: hidden;
         white-space: normal !important;
@@ -133,11 +151,21 @@ export default {
       }
       .authorTxt {
         font-size: 12px;
+        transform: scale(0.9);
+        transform-origin: 0 0;
+        -ms-transform: scale(0.9); /* IE 9 */
+        -ms-transform-origin: 0 0; /* IE 9 */
+        -webkit-transform: scale(0.9); /* Safari 和 Chrome */
+        -webkit-transform-origin: 0 0; /* Safari 和 Chrome */
+        -moz-transform: scale(0.9); /* Firefox */
+        -moz-transform-origin: 0 0; /* Firefox */
+        -o-transform: scale(0.9); /* Opera */
+        -o-transform-origin: 0 0;
         line-height: 12px;
         color: #4285f4;
         span {
           display: inline-block;
-          margin-right: 26px;
+          margin-right: 22px;
         }
       }
     }
