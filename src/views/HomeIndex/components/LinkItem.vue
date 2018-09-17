@@ -5,7 +5,7 @@
           <div class="linkImg" v-text="item.title.slice(0,1)"></div>
           <div class="LinkItemLeft">
             <h2 v-text="item.title"></h2>
-            <p class="linkTxt" v-text="item.url"></p>
+            <p class="linkTxt"><span v-text="item.url"></span><span v-if="item.pwa" v-text="'密码：' + item.pwa"></span></p>
             <p class="authorTxt"><span v-text="'作者：' + item.author">scz</span><span v-text="'类别：' + item.class"></span><span v-text="'时间：' + item.time"></span></p>
           </div>
           <div class="LinkItemRight">
@@ -24,13 +24,23 @@ export default {
       linkListArr: [
         {
           url: "https://pan.baidu.com/s/1M11eMos98td7QBjusA6wiQ",
+          pwa: "",
           title: "Vue.js 源码全方位深入解析",
           author: "乘风追月",
           class: "Vue",
           time: "2018-09-15"
         },
         {
+          url: "https://pan.baidu.com/s/1NFGRdOx9lDTwCZQdh1raAA",
+          pwa: "q0a3",
+          title: "前端完整学习资料",
+          author: "爱学习的笨蛋",
+          class: "UI",
+          time: "2018-09-15"
+        },
+        {
           url: "https://pan.baidu.com/s/16b_bfqeSGyLimqjXV-8UwA",
+          pwa: "",
           title: "打造扛得住的MySQL数据库架构",
           author: "夜星空",
           class: "MySQL",
@@ -38,6 +48,7 @@ export default {
         },
         {
           url: "https://pan.baidu.com/s/1JD3_68LRBRBGsiycUrx3MQ",
+          pwa: "",
           title: "BAT各大公司面试题",
           author: "知乎其微",
           class: "React",
@@ -45,6 +56,7 @@ export default {
         },
         {
           url: "https://pan.baidu.com/s/13wrlboqorOMjjaI0dZDTwQ",
+          pwa: "",
           title: "HTML5与CSS3实现动态网页系列课程",
           author: "小Q",
           class: "HTML5",
@@ -52,6 +64,7 @@ export default {
         },
         {
           url: "https://pan.baidu.com/s/1bxAttYbO9zPFQzwPa5QwdQ",
+          pwa: "",
           title: "Androad 架构",
           author: "爱学习的笨蛋",
           class: "Androad",
@@ -59,6 +72,7 @@ export default {
         },
         {
           url: "https://pan.baidu.com/s/1Jawtn8MdDHa16gyifOvrBg",
+          pwa: "",
           title: "ES6零基础教学 解析彩票项目",
           author: "小万酱",
           class: "ES6",
@@ -66,6 +80,7 @@ export default {
         },
         {
           url: "https://pan.baidu.com/s/1-iu1gU416aphMjSVYTRMfw",
+          pwa: "",
           title: "2019前端跳槽面试必备技巧",
           author: "奔跑的小前端",
           class: "面试",
@@ -73,6 +88,7 @@ export default {
         },
         {
           url: "https://pan.baidu.com/s/1MYj-2Idw007zTYIFRbnmaA",
+          pwa: "",
           title: "网易云python",
           author: "洛雨美",
           class: "python",
@@ -148,6 +164,9 @@ export default {
         word-wrap: break-word;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+        span {
+          margin-right: 8px;
+        }
       }
       .authorTxt {
         font-size: 12px;
