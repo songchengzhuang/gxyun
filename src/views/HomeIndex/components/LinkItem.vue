@@ -55,6 +55,22 @@ export default {
           time: "2018-09-15"
         },
         {
+          url: "https://pan.baidu.com/s/1S9iN47ijRcHQhJIH7egirw",
+          pwa: "",
+          title: "Google资深工程师深度讲解Go语言",
+          author: "知微",
+          class: "golang",
+          time: "2018-09-18"
+        },
+        {
+          url: "https://pan.baidu.com/s/1Cz8M4T0SAuKZAN4et3JXVw",
+          pwa: "kol3",
+          title: "Angular4.0从入门到实践",
+          author: "小粉",
+          class: "Angular",
+          time: "2018-09-16"
+        },
+        {
           url: "https://pan.baidu.com/s/13wrlboqorOMjjaI0dZDTwQ",
           pwa: "",
           title: "HTML5与CSS3实现动态网页系列课程",
@@ -77,6 +93,14 @@ export default {
           author: "小万酱",
           class: "ES6",
           time: "2018-09-15"
+        },
+        {
+          url: "https://pan.baidu.com/s/14snUMWqnzRZNWBJGi-pHQA",
+          pwa: "",
+          title: "Vue2.0+Node.js+MongoDB全栈打造商城系统",
+          author: "二水",
+          class: "Vue",
+          time: "2018-09-05"
         },
         {
           url: "https://pan.baidu.com/s/1-iu1gU416aphMjSVYTRMfw",

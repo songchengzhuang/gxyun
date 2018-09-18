@@ -38,10 +38,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .fxLinkModal {
-  .linkInput:first-child,
-  .linkInput:nth-child(2) {
+  .linkInput {
     width: 100%;
     margin-bottom: 16px;
+  }
+  .linkInput:last-child {
+    margin-bottom: 0;
   }
 }
 </style>

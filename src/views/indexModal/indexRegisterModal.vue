@@ -1,14 +1,19 @@
 <template>
     <Modal
         v-model="modalShow"
-        title="分享云链接"
-        ok-text="分享"
+        title="欢迎加入共享云这个大家庭"
+        ok-text="注册"
         @on-ok="saveOk"
         @on-cancel="cancel">
         <div class="fxLinkModal">
-            <Input class="linkInput" v-model="linkTitle" placeholder="请填写云标题" clearable style="width: 100%"></Input>
-            <Input class="linkInput" v-model="linkUrl" placeholder="请填写云链接" clearable style="width: 100%"></Input>
-            <Input class="linkInput" v-model="linkPwa" placeholder="请填写云密码" clearable style="width: 100%"></Input>
+            <Input class="regInput" :maxlength="6" v-model="regName" placeholder="请填写用户名" clearable style="width: 100%"></Input>
+            <Input class="regInput" :maxlength="3" v-model="regAge" placeholder="请填写年龄" clearable style="width: 100%"></Input>
+            <RadioGroup class="regInput regRadio" v-model="regSex">
+              <Radio label="男"></Radio>
+              <Radio label="女"></Radio>
+            </RadioGroup>
+            <Input class="regInput" type="password" :maxlength="12" v-model="regPwa" placeholder="请填写密码" clearable style="width: 100%"></Input>
+            <Input class="regInput" type="password" :maxlength="12" v-model="regIsPwa" placeholder="请填写确认密码" clearable style="width: 100%"></Input>
         </div>
     </Modal>
 </template>
@@ -18,9 +23,11 @@ export default {
   data() {
     return {
       modalShow: false,
-      linkTitle: "",
-      linkUrl: "",
-      linkPwa: ""
+      regName: "",
+      regAge: "",
+      regSex: "",
+      regPwa: "",
+      regIsPwa: ""
     };
   },
   methods: {
@@ -28,20 +35,32 @@ export default {
       this.modalShow = true;
     },
     saveOk() {
-      this.$Message.info("保存分享");
+      this.$Message.info("注册成功");
+      console.log(
+        this.regName,
+        this.regAge,
+        this.regSex,
+        this.regPwa,
+        this.regIsPwa
+      );
     },
     cancel() {
-      this.$Message.info("退出分享");
+      // this.$Message.info("退出注册");
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 .fxLinkModal {
-  .linkInput:first-child,
-  .linkInput:nth-child(2) {
+  .regInput {
     width: 100%;
     margin-bottom: 16px;
+  }
+  .regInput:last-child {
+    margin-bottom: 0;
+  }
+  .regRadio {
+    padding-left: 16px;
   }
 }
 </style>

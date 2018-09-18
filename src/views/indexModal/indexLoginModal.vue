@@ -1,14 +1,13 @@
 <template>
     <Modal
         v-model="modalShow"
-        title="分享云链接"
-        ok-text="分享"
+        title="欢迎登录分享云"
+        ok-text="登录"
         @on-ok="saveOk"
         @on-cancel="cancel">
         <div class="fxLinkModal">
-            <Input class="linkInput" v-model="linkTitle" placeholder="请填写云标题" clearable style="width: 100%"></Input>
-            <Input class="linkInput" v-model="linkUrl" placeholder="请填写云链接" clearable style="width: 100%"></Input>
-            <Input class="linkInput" v-model="linkPwa" placeholder="请填写云密码" clearable style="width: 100%"></Input>
+            <Input class="loginInput" v-model="loginNmae" placeholder="请填写用户名" clearable style="width: 100%"></Input>
+            <Input class="loginInput" v-model="loginPwa" placeholder="请填写密码" clearable style="width: 100%"></Input>
         </div>
     </Modal>
 </template>
@@ -18,9 +17,8 @@ export default {
   data() {
     return {
       modalShow: false,
-      linkTitle: "",
-      linkUrl: "",
-      linkPwa: ""
+      loginNmae: "",
+      loginPwa: ""
     };
   },
   methods: {
@@ -28,20 +26,22 @@ export default {
       this.modalShow = true;
     },
     saveOk() {
-      this.$Message.info("保存分享");
+      this.$Message.info("登录成功");
     },
     cancel() {
-      this.$Message.info("退出分享");
+      // this.$Message.info("退出分享");
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 .fxLinkModal {
-  .linkInput:first-child,
-  .linkInput:nth-child(2) {
+  .loginInput {
     width: 100%;
     margin-bottom: 16px;
+  }
+  .loginInput:last-child {
+    margin-bottom: 0;
   }
 }
 </style>
