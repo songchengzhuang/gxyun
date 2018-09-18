@@ -5,7 +5,7 @@
           <div class="linkImg" v-text="item.title.slice(0,1)"></div>
           <div class="LinkItemLeft">
             <h2 v-text="item.title"></h2>
-            <p class="linkTxt"><span v-text="item.url"></span><span v-if="item.pwa" v-text="'密码：' + item.pwa"></span></p>
+            <p class="linkTxt"><span v-text="item.url"></span><span v-if="item.pwa" v-text="'密码：' + item.pwa" style="color: #515A6E"></span></p>
             <p class="authorTxt"><span v-text="'作者：' + item.author">scz</span><span v-text="'类别：' + item.class"></span><span v-text="'时间：' + item.time"></span></p>
           </div>
           <div class="LinkItemRight">
