@@ -9,7 +9,7 @@
             <Input class="linkInput" v-model="linkTitle" placeholder="请填写云标题" clearable style="width: 100%"></Input>
             <Input class="linkInput" v-model="linkUrl" placeholder="请填写云链接" clearable style="width: 100%"></Input>
             <Input class="linkInput" v-model="linkPwa" placeholder="请填写云密码" clearable style="width: 100%"></Input>
-            <Select class="linkInput" multiple v-model="linkClass" style="width: 100%">
+            <Select class="linkInput" multiple v-model="linkClass" placeholder="请选择类别" style="width: 100%">
                 <Option value="HTML5">HTML5</Option>
                 <Option value="CSS3">CSS3</Option>
                 <Option value="Vue">Vue</Option>
