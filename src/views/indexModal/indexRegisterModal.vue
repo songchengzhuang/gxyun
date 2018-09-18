@@ -1,7 +1,7 @@
 <template>
     <Modal
         v-model="modalShow"
-        title="欢迎加入共享云这个大家庭"
+        title="欢迎加入共享云大家庭"
         ok-text="注册"
         @on-ok="saveOk"
         @on-cancel="cancel">

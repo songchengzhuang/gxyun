@@ -1,5 +1,5 @@
 <template>
-    <div class="AdvertisUnit">
+    <div class="AdvertisUnit" :style="{'height':imgHeight}">
         <img :src="imgSrcLink" alt="图片">
     </div>
 </template>
@@ -7,6 +7,10 @@
 export default {
   name: "AdvertisUnit",
   props: {
+    height: {
+      type: String,
+      default: "260px"
+    },
     imgSrc: {
       type: String,
       default: "http://sczgodofwar.top/gxyImges/logo_yun.png"
@@ -14,6 +18,7 @@ export default {
   },
   data() {
     return {
+      imgHeight: this.height,
       imgSrcLink: this.imgSrc
     };
   }
@@ -22,7 +27,7 @@ export default {
 <style lang="scss" scoped>
 .AdvertisUnit {
   width: 100%;
-  height: 260px;
+  // height: 260px;
   position: relative;
   cursor: pointer;
   img {

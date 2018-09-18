@@ -9,6 +9,15 @@
             <Input class="linkInput" v-model="linkTitle" placeholder="请填写云标题" clearable style="width: 100%"></Input>
             <Input class="linkInput" v-model="linkUrl" placeholder="请填写云链接" clearable style="width: 100%"></Input>
             <Input class="linkInput" v-model="linkPwa" placeholder="请填写云密码" clearable style="width: 100%"></Input>
+            <Select class="linkInput" multiple v-model="linkClass" style="width: 100%">
+                <Option value="HTML5">HTML5</Option>
+                <Option value="CSS3">CSS3</Option>
+                <Option value="Vue">Vue</Option>
+                <Option value="React">React</Option>
+                <Option value="Angular">Angular</Option>
+                <Option value="Node">Node</Option>
+                <Option value="Webpack">Webpack</Option>
+            </Select>
         </div>
     </Modal>
 </template>
@@ -20,8 +29,16 @@ export default {
       modalShow: false,
       linkTitle: "",
       linkUrl: "",
-      linkPwa: ""
+      linkPwa: "",
+      linkClass: []
     };
+  },
+  watch: {
+    linkClass() {
+      if (this.linkClass && this.linkClass.length > 4) {
+        this.linkClass = this.linkClass.slice(0, 4);
+      }
+    }
   },
   methods: {
     showModal() {

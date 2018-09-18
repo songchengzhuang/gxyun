@@ -11,10 +11,11 @@
         <link-item></link-item>
     </Content>
     <Sider class="homeSiderRight">
-        <advertis-unit :imgSrc="imgSrc02"></advertis-unit>
+        <div class="siderRightDiv"></div>
         <h2>分类</h2>
         <link-class></link-class>
         <advertis-unit :imgSrc="imgSrc01"></advertis-unit>
+        <advertis-unit :imgSrc="imgSrc03" height="274px"></advertis-unit>
     </Sider>
 </Layout>
 </template>
@@ -37,7 +38,7 @@ export default {
   data() {
     return {
       imgSrc01: "http://sczgodofwar.top/gxyImges/rightImg01.png",
-      imgSrc02: "http://sczgodofwar.top/gxyImges/rightImg02.jpg"
+      imgSrc03: "http://sczgodofwar.top/gxyImges/imgSrc04.jpg"
     };
   },
   methods: {}
@@ -75,7 +76,14 @@ export default {
     z-index: 1;
   }
   .homeSiderRight {
-    height: 1200px;
+    height: 1500px;
+    .siderRightDiv {
+      width: 100%;
+      height: 260px;
+      background: url(http://sczgodofwar.top/gxyImges/rightImg02.jpg) no-repeat
+        center;
+      background-size: 100%;
+    }
     h2 {
       color: #000;
       text-align: center;
