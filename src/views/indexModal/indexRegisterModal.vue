@@ -35,17 +35,70 @@ export default {
       this.modalShow = true;
     },
     saveOk() {
-      this.$Message.info("注册成功");
-      console.log(
-        this.regName,
-        this.regAge,
-        this.regSex,
-        this.regPwa,
-        this.regIsPwa
-      );
+      var isAudit = this.checkData();
+      if (!isAudit) {
+        return false;
+      }
+      var userObj = {
+        userName: this.regName,
+        userAge: this.regAge,
+        userSex: this.regSex,
+        userPwa: this.regPwa
+      };
+      this.$ajax
+        .post("/interface/regUser", userObj)
+        .then(res => {
+          if (res.data.code === 200 && res.data.success === true) {
+            this.$Message.info("注册成功！");
+          }
+          if (res.data.code === 200 && res.data.success === false) {
+            this.$Message.info("该用户名已经存在！");
+          }
+          if (res.data.code === 500 && res.data.success === false) {
+            this.$Message.info("请您检查数据类型重新注册！");
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
     },
     cancel() {
       // this.$Message.info("退出注册");
+    },
+    checkData() {
+      if (!this.regName) {
+        this.$Message.error("请填写用户名！");
+        return false;
+      }
+      if (!this.regAge) {
+        this.$Message.error("请填写年龄！");
+        return false;
+      }
+      if (isNaN(this.regAge)) {
+        this.$Message.error("请填写数字年龄！");
+        return false;
+      }
+      if (this.regAge < 3 || this.regAge > 100) {
+        this.$Message.error("请填写3-100区间的年龄！");
+        return false;
+      }
+      if (!this.regSex) {
+        this.$Message.error("请选择性别！");
+        return false;
+      }
+      if (!this.regPwa || !this.regIsPwa) {
+        this.$Message.error("请填写的密码！");
+        return false;
+      }
+      if (this.regPwa !== this.regIsPwa) {
+        this.$Message.error("填写的密码不一致！");
+        return false;
+      }
+      if (!/^[0-9a-zA-z]+$/.test(this.regPwa)) {
+        this.$Message.error("密码由数字和字母组成！");
+        return false;
+      }
+      return true;
     }
   }
 };
