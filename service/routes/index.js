@@ -4,7 +4,7 @@
 var express = require("express");
 var router = express.Router();
 
-/* GET home page. */
+/* 访问node服务路由 */
 router.get("/login", function(req, res) {
   res.render("Login/Login"); // 不加.html也可以。
 });

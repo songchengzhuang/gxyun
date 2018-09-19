@@ -1,7 +1,7 @@
 <template>
   <Content class="shareBlog">
     <h2>敬请期待...</h2>
-    <p v-for="item in userList" :key="item.id">{{"姓名：" + item.id+"————————姓名：" + item.name+"——————————年龄：" + item.age}}</p>
+    <p v-for="item in userList" :key="item.id">{{"id：" + item.userId+"————姓名：" + item.userName+"———年龄：" + item.userAge+"———性别：" + item.userSex+"———密码：" + item.userPwa+"———时间：" + item.regTime}}</p>
   </Content>
 </template>
 <script>
@@ -15,7 +15,7 @@ export default {
   methods: {
     userListData() {
       this.$ajax
-        .get("/gxyundata/getUserList")
+        .get("/gxyundata/getRegUserList")
         .then(res => {
           console.log(res.data.data); // node的返回的数据在data中
           this.userList = res.data.data;

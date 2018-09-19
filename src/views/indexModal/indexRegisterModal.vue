@@ -1,6 +1,7 @@
 <template>
     <Modal
         v-model="modalShow"
+        :loading="loading"
         title="欢迎加入共享云大家庭"
         ok-text="注册"
         @on-ok="saveOk"
@@ -22,6 +23,7 @@ export default {
   name: "indexRegister",
   data() {
     return {
+      loading: true,
       modalShow: false,
       regName: "",
       regAge: "",
@@ -32,11 +34,20 @@ export default {
   },
   methods: {
     showModal() {
+      this.$nextTick(() => {
+        this.loading = true;
+      });
       this.modalShow = true;
     },
     saveOk() {
       var isAudit = this.checkData();
       if (!isAudit) {
+        setTimeout(() => {
+          this.loading = false;
+          this.$nextTick(() => {
+            this.loading = true;
+          });
+        }, 50);
         return false;
       }
       var userObj = {
@@ -46,16 +57,33 @@ export default {
         userPwa: this.regPwa
       };
       this.$ajax
-        .post("/gxyundata/regUser", userObj)
+        .post("/gxyundata/postRegUser", userObj)
         .then(res => {
           if (res.data.code === 200 && res.data.success === true) {
             this.$Message.info("注册成功！");
+            this.loading = false;
+            this.modalShow = false;
+            return false;
           }
           if (res.data.code === 200 && res.data.success === false) {
             this.$Message.info("该用户名已经存在！");
+            setTimeout(() => {
+              this.loading = false;
+              this.$nextTick(() => {
+                this.loading = true;
+              });
+            }, 50);
+            return false;
           }
           if (res.data.code === 500 && res.data.success === false) {
             this.$Message.info("请您检查数据类型重新注册！");
+            setTimeout(() => {
+              this.loading = false;
+              this.$nextTick(() => {
+                this.loading = true;
+              });
+            }, 50);
+            return false;
           }
         })
         .catch(error => {

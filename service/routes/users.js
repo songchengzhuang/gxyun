@@ -4,11 +4,14 @@
 var express = require("express");
 var router = express.Router();
 //引进处理方法
-var regUser = require("./Interface/postRegUser");
+var postRegUser = require("./Interface/postRegUser");
+var getRegUserList = require("./Interface/getRegUserList");
+//
 var postUser = require("./Interface/postUser");
 var getUserList = require("./Interface/getUserList");
 /* 分享云接口 */
-router.post("/regUser", regUser.postRegUser); // 注册用户
+router.post("/postRegUser", postRegUser.postRegUser); // 注册用户
+router.get("/getRegUserList", getRegUserList.getRegUserList); // 查询注册用户
 
 /* 多页面接口案例 */
 router.post("/postUser", postUser.postUser); // 传入用户
