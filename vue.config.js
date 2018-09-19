@@ -42,11 +42,11 @@ module.exports = {
     https: false,
     hotOnly: false,
     proxy: {
-      "/interface": {
+      "/gxyundata": {
         target: "http://localhost:3000/",
         changeOrigin: true,
         pathRewrite: {
-          "^/interface": "/interface"
+          "^/gxyundata": "/gxyundata"
         }
       }
     } // 设置代理

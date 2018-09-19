@@ -15,7 +15,7 @@ export default {
   methods: {
     userListData() {
       this.$ajax
-        .get("/interface/getUserList")
+        .get("/gxyundata/getUserList")
         .then(res => {
           console.log(res.data.data); // node的返回的数据在data中
           this.userList = res.data.data;

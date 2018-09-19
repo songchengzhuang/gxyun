@@ -46,7 +46,7 @@ export default {
         userPwa: this.regPwa
       };
       this.$ajax
-        .post("/interface/regUser", userObj)
+        .post("/gxyundata/regUser", userObj)
         .then(res => {
           if (res.data.code === 200 && res.data.success === true) {
             this.$Message.info("注册成功！");

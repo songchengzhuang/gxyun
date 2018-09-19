@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname, "/service/dist")));
 app.use(express.static(path.join(__dirname, "/service/views")));
 
 app.use("/", indexRouter);
-app.use("/Interface", usersRouter);
+app.use("/gxyundata", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
