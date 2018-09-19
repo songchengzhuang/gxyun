@@ -7,7 +7,7 @@ exports.postRegUser = function(req, res) {
   if (!isAudit) {
     res.json({
       code: 500,
-      message: "请检查数据类型",
+      message: "请检查数据类型！",
       success: false
     });
     return false;
@@ -21,14 +21,14 @@ exports.postRegUser = function(req, res) {
       res.json({
         data: err,
         code: 500,
-        message: "服务器脑子进水啦",
+        message: "服务器脑子进水啦！",
         success: false
       });
     } else {
       if (rows && rows.length > 0) {
         res.json({
           code: 200,
-          message: "该用户名已存在",
+          message: "该用户名已存在！",
           success: false
         });
         return false;
