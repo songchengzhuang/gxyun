@@ -13,10 +13,10 @@ exports.postRegUser = function(req, res) {
     return false;
   }
   //查询
-  var seekName = "'" + req.body.userName + "'";
-  var seekNmeSql = "SELECT * FROM reg_user WHERE userName=" + seekName;
+  var seekName = req.body.userName;
+  var seekNmeSql = "SELECT * FROM reg_user WHERE userName=?";
 
-  query(seekNmeSql, function(err, rows) {
+  query(seekNmeSql, [seekName], function(err, rows) {
     if (err) {
       res.json({
         data: err,

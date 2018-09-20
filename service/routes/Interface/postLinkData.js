@@ -13,15 +13,11 @@ exports.postLinkData = function(req, res) {
     return false;
   }
   //查询
-  var seekId = "'" + req.body.userId + "'";
-  var seekName = "'" + req.body.linkAuthor + "'";
-  var seekNmeSql =
-    "SELECT * FROM reg_user WHERE userId=" +
-    seekId +
-    "AND userName=" +
-    seekName;
+  var seekId = req.body.userId;
+  var seekName = req.body.linkAuthor;
+  var seekNmeSql = "SELECT * FROM reg_user WHERE userId=? AND userName=?";
 
-  query(seekNmeSql, function(err, rows) {
+  query(seekNmeSql, [seekId, seekName], function(err, rows) {
     if (err) {
       res.json({
         data: err,

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-09-19 07:51:06
+-- Generation Time: 2018-09-20 07:24:41
 -- 服务器版本： 5.7.21
 -- PHP Version: 5.6.35
 
@@ -34,14 +34,22 @@ CREATE TABLE IF NOT EXISTS `link_list` (
   `linkTitle` varchar(40) NOT NULL,
   `linkUrl` varchar(100) NOT NULL,
   `linkPwa` varchar(40) DEFAULT NULL,
-  `linkClass` varchar(40) NOT NULL,
+  `linkClass` varchar(100) NOT NULL,
+  `userId` int(10) NOT NULL,
   `linkAuthor` varchar(40) NOT NULL,
   `linkPraise` varchar(40) NOT NULL,
   `linkReport` varchar(40) NOT NULL,
   `linkShow` int(10) NOT NULL,
-  `linkTime` int(16) DEFAULT NULL,
+  `linkTime` bigint(16) DEFAULT NULL,
   PRIMARY KEY (`linkId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10002 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `link_list`
+--
+
+INSERT INTO `link_list` (`linkId`, `linkTitle`, `linkUrl`, `linkPwa`, `linkClass`, `userId`, `linkAuthor`, `linkPraise`, `linkReport`, `linkShow`, `linkTime`) VALUES
+(10001, 'Vue.js 源码全方位深入解析', 'https://pan.baidu.com/s/1M11eMos98td7QBjusA6wiQ', '', 'HTML5,Vue,Webpack', 100007, '冬梅', '0', '0', 1, 1537428097635);
 
 -- --------------------------------------------------------
 
@@ -58,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
   `userPwa` varchar(40) NOT NULL,
   `regTime` bigint(16) DEFAULT NULL,
   PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=100014 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=100016 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `reg_user`
@@ -69,7 +77,9 @@ INSERT INTO `reg_user` (`userId`, `userName`, `userAge`, `userSex`, `userPwa`, `
 (100005, 'scz', '23', '男', 'aabbCC', 1537341333834),
 (100007, '冬梅', '24', '女', '123', 1537342080823),
 (100012, 'scz11', '22', '男', 'qwe', 1537342593358),
-(100013, 'scz3', '22', '男', 'qwe', 1537342601901);
+(100013, 'scz3', '22', '男', 'qwe', 1537342601901),
+(100014, 'adad', '21', '女', 'qaz', 1537345158510),
+(100015, ' d打我', '21', '女', 'ert123', 1537345455095);
 
 -- --------------------------------------------------------
 

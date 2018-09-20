@@ -76,7 +76,7 @@ export default {
     z-index: 1;
   }
   .homeSiderRight {
-    height: 1500px;
+    height: 1000px;
     .siderRightDiv {
       width: 100%;
       height: 260px;

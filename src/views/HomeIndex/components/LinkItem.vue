@@ -1,12 +1,12 @@
 <template>
     <!-- 链接item -->
     <div class="LinkList">
-        <div class="LinkItem" v-for="(item,index) in linkListArr" :key="index">
-          <div class="linkImg" v-text="item.title.slice(0,1)"></div>
+        <div class="LinkItem" v-for="item in linkListArr" :key="item.linkId" v-if="item.linkShow">
+          <div class="linkImg" v-text="item.linkTitle.slice(0,1)"></div>
           <div class="LinkItemLeft">
-            <h2 v-text="item.title"></h2>
-            <p class="linkTxt"><span v-text="item.url"></span><span v-if="item.pwa" v-text="'密码：' + item.pwa" style="color: #515A6E"></span></p>
-            <p class="authorTxt"><span v-text="'作者：' + item.author">scz</span><span v-text="'类别：' + item.class"></span><span v-text="'时间：' + item.time"></span></p>
+            <h2 v-text="item.linkTitle"></h2>
+            <p class="linkTxt"><span v-text="item.linkUrl"></span><span v-if="item.linkPwa" v-text="'密码：' + item.linkPwa" style="color: #515A6E"></span></p>
+            <p class="authorTxt"><span v-text="'作者：' + item.linkAuthor"></span><span v-text="'类别：' + item.linkClass"></span><span v-text="'时间：' + item.linkTime"></span></p>
           </div>
           <div class="LinkItemRight">
             <a :href="item.url" target="_blank">
@@ -120,6 +120,22 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    linkListData() {
+      this.$ajax
+        .get("/gxyundata/getlinkdata")
+        .then(res => {
+          console.log(res.data.data); // node的返回的数据在data中
+          this.linkListArr = res.data.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  },
+  mounted() {
+    this.linkListData();
   }
 };
 </script>
