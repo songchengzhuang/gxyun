@@ -30,7 +30,9 @@ exports.postLogin = function(req, res) {
           rows[0].userName === req.body.userName &&
           rows[0].userPwa === req.body.userPwa
         ) {
+          rows[0].userPwa = null;
           res.json({
+            data: rows[0],
             code: 200,
             message: "登录成功！",
             success: true

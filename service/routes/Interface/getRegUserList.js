@@ -1,7 +1,7 @@
 var query = require("../../config/sqlConfig");
 
 exports.getRegUserList = function(req, res) {
-  console.log("************* 用 户 注 册 列 表 **************");
+  console.log("************* 查 询 用 户 列 表 **************");
   // 输出 JSON 格式
   var addSql = "SELECT * FROM reg_user";
   query(addSql, function(err, rows) {

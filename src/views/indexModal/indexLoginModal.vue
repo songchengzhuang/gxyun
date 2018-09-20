@@ -7,8 +7,8 @@
         @on-ok="saveOk"
         @on-cancel="cancel">
         <div class="fxLinkModal">
-            <Input class="loginInput" v-model="loginName" placeholder="请填写用户名" clearable style="width: 100%"></Input>
-            <Input class="loginInput" type="password" v-model="loginPwa" placeholder="请填写密码" clearable style="width: 100%"></Input>
+            <Input class="loginInput" v-model="loginName" :maxlength="6" placeholder="请填写用户名" clearable style="width: 100%"></Input>
+            <Input class="loginInput" type="password" :maxlength="12" v-model="loginPwa" placeholder="请填写密码" clearable style="width: 100%"></Input>
         </div>
     </Modal>
 </template>
@@ -52,6 +52,11 @@ export default {
             this.$Message.info("登录成功");
             this.loading = false;
             this.modalShow = false;
+            var key = res.data.data.userId + res.data.data.userName;
+            var value = JSON.stringify(res.data.data);
+            localStorage.setItem("reg_gxy_user_id", res.data.data.userId);
+            localStorage.setItem("reg_gxy_user_name", res.data.data.userName);
+            localStorage.setItem(key, value);
             return false;
           }
           if (res.data.code === 200 && res.data.success === false) {

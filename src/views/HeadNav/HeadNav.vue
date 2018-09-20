@@ -2,7 +2,6 @@
     <!-- 导航 -->
     <Header class="Header">
           <Menu mode="horizontal" theme="dark" active-name="1">
-              <!-- <div class="layout-logo"></div> -->
               <router-link class="layout-logo" tag="div" to="/"></router-link>
               <div class="layout-nav">
                   <MenuItem name="1">
@@ -123,7 +122,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 1330px) {
+@media screen and (max-width: 1550px) {
   .navMotto {
     display: none;
   }
