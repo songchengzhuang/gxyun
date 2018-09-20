@@ -7,9 +7,9 @@
         @on-ok="saveOk"
         @on-cancel="cancel">
         <div class="fxLinkModal">
-            <Input class="linkInput" v-model="linkTitle" :maxlength="16" placeholder="请填写云标题" clearable style="width: 100%"></Input>
+            <Input class="linkInput" v-model="linkTitle" :maxlength="30" placeholder="请填写云标题" clearable style="width: 100%"></Input>
             <Input class="linkInput" v-model="linkUrl" :maxlength="80" placeholder="请填写云链接" clearable style="width: 100%"></Input>
-            <Input class="linkInput" v-model="linkPwa" :maxlength="8" placeholder="请填写云密码" clearable style="width: 100%"></Input>
+            <Input class="linkInput" v-model="linkPwa" :maxlength="12" placeholder="请填写云密码" clearable style="width: 100%"></Input>
             <Select class="linkInput" multiple v-model="linkClass" placeholder="请选择类别" style="width: 100%">
                 <Option value="HTML5">HTML5</Option>
                 <Option value="CSS3">CSS3</Option>
@@ -72,8 +72,8 @@ export default {
         linkUrl: this.linkUrl,
         linkPwa: this.linkPwa,
         linkClass: this.linkClass,
-        userId: localStorage.getItem("reg_gxy_user_name"),
-        linkAuthor: localStorage.getItem("reg_gxy_user_id")
+        userId: localStorage.getItem("reg_gxy_user_id"),
+        linkAuthor: localStorage.getItem("reg_gxy_user_name")
       };
       this.$ajax
         .post("/gxyundata/postLinkData", linkObj)

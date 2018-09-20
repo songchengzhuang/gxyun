@@ -50,7 +50,7 @@ exports.postLinkData = function(req, res) {
       req.body.linkTitle,
       req.body.linkUrl,
       req.body.linkPwa,
-      req.body.linkClass,
+      req.body.linkClass.join(","),
       req.body.userId,
       req.body.linkAuthor,
       0,
