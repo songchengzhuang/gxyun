@@ -3,8 +3,10 @@ var query = require("../../config/sqlConfig");
 exports.getRegUserList = function(req, res) {
   console.log("************* 查 询 用 户 列 表 **************");
   // 输出 JSON 格式
-  var addSql = "SELECT * FROM reg_user";
-  query(addSql, function(err, rows) {
+  var userNameSearch = "%" + req.query.userName + "%";
+  var addSql = "SELECT * FROM reg_user WHERE userName LIKE ? limit ?,?";
+  var getUserArr = [userNameSearch, req.query.page - 0, req.query.pageSize - 0];
+  query(addSql, getUserArr, function(err, rows) {
     if (err) {
       res.json({
         data: "",

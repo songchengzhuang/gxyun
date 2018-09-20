@@ -2,13 +2,20 @@ var query = require("../../config/sqlConfig");
 
 exports.getLinkData = function(req, res) {
   console.log("************* 查 询 云 链 接 列 表 **************");
-  console.log(req.query);
   // 输出 JSON 格式
-  var addSql = "SELECT * FROM link_list limit ?,?";
-  query(addSql, [0, 6], function(err, rows) {
+  var linkTitleSearch = "%" + req.query.linkSearch + "%";
+  var getLinkSql =
+    "SELECT * FROM link_list WHERE linkTitle LIKE ? AND linkAuthor=? ORDER BY linkPraise DESC limit ?,?";
+  var getLinkArr = [
+    linkTitleSearch,
+    req.query.linkAuthor,
+    req.query.page - 0,
+    req.query.pageSize - 0
+  ];
+  query(getLinkSql, getLinkArr, function(err, rows) {
     if (err) {
       res.json({
-        data: "",
+        data: err,
         code: 500,
         message: "云链接列表查询失败！",
         success: false

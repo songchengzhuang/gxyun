@@ -1,7 +1,7 @@
 var query = require("../../config/sqlConfig");
 
 exports.getUserList = function(req, res) {
-  console.log("************* 用 户 列 表 **************");
+  console.log("************* 多 页 面 用 户 列 表 **************");
   // 输出 JSON 格式
   var addSql = "SELECT * FROM study_tbl";
   query(addSql, function(err, rows) {
