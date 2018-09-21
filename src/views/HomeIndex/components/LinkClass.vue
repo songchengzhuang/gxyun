@@ -1,6 +1,8 @@
 <template>
     <ul class="LinkClass">
-        <li v-for="item in classList" :key="item" v-text="item"></li>
+        <li v-for="item in classList" :key="item">
+          <p v-text="item"></p>
+        </li>
     </ul>
 </template>
 <script>
@@ -27,18 +29,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 .LinkClass {
-  padding: 10px 8px 22px 8px;
-  background: #f5f7f9;
+  background: #fff;
+  color: #0079c4;
+  margin-bottom: 16px;
   li {
     float: left;
     list-style: none;
+    width: 50%;
+    height: 36px;
+    line-height: 36px;
     font-size: 14px;
     font-weight: 600;
-    padding: 6px 10px;
-    margin: 6px 10px;
-    box-shadow: 1px 1px 1px #fff;
-    border-radius: 3px;
-    background: #fff;
+    text-align: center;
     cursor: pointer;
     &:hover {
       color: #d41b1b;

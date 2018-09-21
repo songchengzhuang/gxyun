@@ -2,13 +2,16 @@
     <!-- 链接item -->
     <div class="LinkList">
         <div class="LinkItem" v-for="item in linkListArr" :key="item.linkId" v-if="item.linkShow">
-          <div class="linkImg" v-text="item.linkTitle.slice(0,1)"></div>
+          <div class="linkImg" >
+            <div class="classNum">
+              <p v-for="itemClass in item.linkClass.split(',')" :key="itemClass" v-text="itemClass"></p>
+            </div>
+          </div>
           <div class="LinkItemLeft">
             <h2 v-text="item.linkTitle"></h2>
             <p class="linkTxt"><span v-text="item.linkUrl"></span><span v-if="item.linkPwa" v-text="'密码：' + item.linkPwa" style="color: #515A6E"></span></p>
             <p class="authorTxt">
               <span v-text="item.linkAuthor"></span>
-              <span v-text="item.linkClass"></span>
               <span v-text="timestampToTime(item.linkTime)"></span>
               <span v-text="'点赞：' + item.linkPraise"></span>
               <span v-text="'差评：' + item.linkReport"></span>
@@ -92,7 +95,7 @@ function change(t) {
 .LinkList {
   padding: 16px 20px;
   .LinkItem {
-    padding: 16px 36px 12px 26px;
+    padding: 16px 30px 12px 16px;
     margin: 12px 0;
     border-radius: 6px;
     box-shadow: 0px 0px 2px 1px #aaa;
@@ -111,23 +114,39 @@ function change(t) {
       }
     }
     .linkImg {
-      width: 60px;
-      height: 60px;
-      font-size: 22px;
-      font-weight: 600;
-      color: #000;
+      width: 70px;
+      height: 70px;
+      color: #fff;
       text-align: center;
-      line-height: 60px;
-      border-radius: 6px;
-      background: #f2f2f2;
       position: absolute;
       top: 50%;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
       overflow: hidden;
+      .classNum {
+        p {
+          font-size: 12px;
+          line-height: 15px;
+          margin-bottom: 2px;
+          border-radius: 3px;
+        }
+        p:first-child {
+          background-color: #f16543;
+        }
+        p:nth-child(2) {
+          background-color: #19be6b;
+        }
+        p:nth-child(3) {
+          background-color: #2db7f5;
+        }
+        p:last-child {
+          background-color: #ffad33;
+          margin-bottom: 0px;
+        }
+      }
     }
     .LinkItemLeft {
-      margin-left: 80px;
+      margin-left: 85px;
       margin-right: 70px;
       h2 {
         font-size: 20px;
