@@ -124,6 +124,12 @@ function change(t) {
       transform: translateY(-50%);
       overflow: hidden;
       .classNum {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        overflow: hidden;
         p {
           font-size: 12px;
           line-height: 15px;
