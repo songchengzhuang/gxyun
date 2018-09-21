@@ -4,8 +4,14 @@ exports.getRegUserList = function(req, res) {
   console.log("************* 查 询 用 户 列 表 **************");
   // 输出 JSON 格式
   var userNameSearch = "%" + req.query.userName + "%";
-  var addSql = "SELECT * FROM reg_user WHERE userName LIKE ? limit ?,?";
-  var getUserArr = [userNameSearch, req.query.page - 0, req.query.pageSize - 0];
+  var addSql = "SELECT * FROM reg_user limit ?,?";
+  var getUserArr = [req.query.page - 0, req.query.pageSize - 0];
+
+  if (req.query.userName) {
+    addSql = "SELECT * FROM reg_user WHERE userName LIKE ? limit ?,?";
+    getUserArr = [userNameSearch, req.query.page - 0, req.query.pageSize - 0];
+  }
+
   query(addSql, getUserArr, function(err, rows) {
     if (err) {
       res.json({

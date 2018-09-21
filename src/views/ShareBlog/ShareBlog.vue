@@ -15,7 +15,13 @@ export default {
   methods: {
     userListData() {
       this.$ajax
-        .get("/gxyundata/getRegUserList")
+        .get("/gxyundata/getRegUserList", {
+          params: {
+            userName: "",
+            page: 0,
+            pageSize: 10
+          }
+        })
         .then(res => {
           console.log(res.data.data); // node的返回的数据在data中
           this.userList = res.data.data;
