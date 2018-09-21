@@ -67,6 +67,7 @@ export default {
       color: #000;
       text-align: center;
       margin: 27px 0;
+      text-shadow: 3px 3px 3px #ccc;
     }
   }
   .homeSiderLeft,
@@ -88,6 +89,7 @@ export default {
       color: #000;
       text-align: center;
       margin: 27px 0;
+      text-shadow: 5px 5px 5px #ccc;
     }
   }
 
@@ -97,6 +99,7 @@ export default {
     h1 {
       color: #000;
       margin: 20px 0 0 20px;
+      text-shadow: 3px 3px 3px #ccc;
     }
   }
 }

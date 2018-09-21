@@ -7,7 +7,7 @@
         @on-ok="saveOk"
         @on-cancel="cancel">
         <div class="fxLinkModal">
-            <Input class="regInput" :maxlength="6" v-model="regName" placeholder="请填写用户名" clearable style="width: 100%"></Input>
+            <Input class="regInput" :maxlength="8" v-model="regName" placeholder="请填写用户名" clearable style="width: 100%"></Input>
             <Input class="regInput" :maxlength="3" v-model="regAge" placeholder="请填写年龄" clearable style="width: 100%"></Input>
             <RadioGroup class="regInput regRadio" v-model="regSex">
               <Radio label="男"></Radio>

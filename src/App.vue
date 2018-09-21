@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="layout">
     <Layout>
-      <head-nav @writeLinkModal="writeLinkModal"></head-nav>
+      <head-nav ref="headNav" @writeLinkModal="writeLinkModal"></head-nav>
       <keep-alive>
         <router-view/>
       </keep-alive>
@@ -9,7 +9,7 @@
   </Layout>
   <write-link-modal ref="linkModa"></write-link-modal>
   <index-register-modal ref="registerModa"></index-register-modal>
-  <index-login-modal ref="loginModa"></index-login-modal>
+  <index-login-modal ref="loginModa" @loginUser="loginUser"></index-login-modal>
 </div>
 </template>
 <script>
@@ -43,6 +43,9 @@ export default {
       if (type === "loginModa") {
         this.$refs.loginModa.showModal();
       }
+    },
+    loginUser() {
+      this.$refs.headNav.isUserLogin();
     }
   }
 };

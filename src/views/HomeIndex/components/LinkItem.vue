@@ -131,7 +131,7 @@ function change(t) {
       margin-right: 70px;
       h2 {
         font-size: 20px;
-        line-height: 20px;
+        line-height: 21px;
         color: #333;
         margin-bottom: 12px;
         letter-spacing: 1px;

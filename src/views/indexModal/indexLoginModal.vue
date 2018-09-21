@@ -60,6 +60,7 @@ export default {
             localStorage.setItem(key, value);
             this.loginName = "";
             this.loginPwa = "";
+            this.$emit("loginUser");
             return false;
           }
           if (res.data.code === 200 && res.data.success === false) {

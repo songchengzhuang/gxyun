@@ -75,6 +75,10 @@ function regUserCheckData(req) {
     console.log("请填写用户名！");
     return false;
   }
+  if (req.body.userName.length > 8) {
+    console.log("用户名长度要小于8位！");
+    return false;
+  }
   if (!req.body.userAge) {
     console.log("请填写年龄！");
     return false;

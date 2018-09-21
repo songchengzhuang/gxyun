@@ -25,9 +25,10 @@
                   <span @click="writeLinkModal('registerModa')"><Icon type="social-octocat" size="16"></Icon>注册</span>
                 </span>
                 <span class="loginUser" v-if="userData">
-                  <Icon type="female" size="16"></Icon>
-                  <Icon type="male" size="16"></Icon>
-                  <span v-text="userData.userName"></span>
+                  <Icon class="sexIcon" v-if="userData.userSex === '女'" type="ios-female" size="16" color="#ff80aa"></Icon>
+                  <Icon class="sexIcon" v-if="userData.userSex === '男'" type="ios-male" size="16" color="#80aaff"></Icon>
+                  <span class="loginName" v-text="userData.userName"></span>
+                  <Icon class="loginClear" type="ios-power" size="18" @click="clearLocal"></Icon>
                 </span>
               </div>
               <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-enter="searchYunLink" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 260px"></Input>
@@ -58,6 +59,18 @@ export default {
       let userPwa = localStorage.getItem("reg_gxy_user_pwa");
       let linkAuthor = localStorage.getItem("reg_gxy_user_name");
       this.userData = JSON.parse(localStorage.getItem(userPwa + linkAuthor));
+    },
+    clearLocal() {
+      localStorage.getItem("reg_gxy_user_pwa");
+      localStorage.getItem("reg_gxy_user_name");
+      var keyData =
+        localStorage.getItem("reg_gxy_user_pwa") +
+        localStorage.getItem("reg_gxy_user_name");
+      localStorage.removeItem("reg_gxy_user_id");
+      localStorage.removeItem("reg_gxy_user_pwa");
+      localStorage.removeItem("reg_gxy_user_name");
+      localStorage.removeItem(keyData);
+      this.userData = "";
     }
   },
   mounted() {
@@ -135,6 +148,24 @@ export default {
       }
     }
     .loginUser {
+      .sexIcon {
+        font-weight: 600;
+        margin-right: 5px;
+      }
+      .loginName {
+        padding: 8px 12px;
+        margin-right: 10px;
+        border-radius: 32px;
+        background-color: #7b869e;
+        &:hover {
+          box-shadow: 0px 0px 5px 1px #ccc;
+        }
+      }
+      .loginClear {
+        &:hover {
+          color: #ff6666;
+        }
+      }
     }
   }
 }
