@@ -45,7 +45,7 @@ export default {
   methods: {
     showModal() {
       var localkey =
-        localStorage.getItem("reg_gxy_user_id") +
+        localStorage.getItem("reg_gxy_user_pwa") +
         localStorage.getItem("reg_gxy_user_name");
       if (!localStorage.getItem(localkey)) {
         this.$Message.info("请您先登录共享云！");
@@ -73,6 +73,7 @@ export default {
         linkPwa: this.linkPwa,
         linkClass: this.linkClass,
         userId: localStorage.getItem("reg_gxy_user_id"),
+        userPwa: localStorage.getItem("reg_gxy_user_pwa"),
         linkAuthor: localStorage.getItem("reg_gxy_user_name")
       };
       this.$ajax

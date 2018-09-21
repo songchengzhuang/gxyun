@@ -52,11 +52,14 @@ export default {
             this.$Message.info("登录成功");
             this.loading = false;
             this.modalShow = false;
-            var key = res.data.data.userId + res.data.data.userName;
+            var key = res.data.data.userPwa + res.data.data.userName;
             var value = JSON.stringify(res.data.data);
             localStorage.setItem("reg_gxy_user_id", res.data.data.userId);
+            localStorage.setItem("reg_gxy_user_pwa", res.data.data.userPwa);
             localStorage.setItem("reg_gxy_user_name", res.data.data.userName);
             localStorage.setItem(key, value);
+            this.loginName = "";
+            this.loginPwa = "";
             return false;
           }
           if (res.data.code === 200 && res.data.success === false) {

@@ -1,4 +1,5 @@
 var query = require("../../config/sqlConfig");
+var md5 = require("md5-node"); // md5加密
 
 exports.postLogin = function(req, res) {
   console.log("************* 用 户 登 录 **************");
@@ -28,9 +29,8 @@ exports.postLogin = function(req, res) {
       if (rows && rows.length > 0) {
         if (
           rows[0].userName === req.body.userName &&
-          rows[0].userPwa === req.body.userPwa
+          rows[0].userPwa === md5(req.body.userPwa)
         ) {
-          rows[0].userPwa = null;
           res.json({
             data: rows[0],
             code: 200,

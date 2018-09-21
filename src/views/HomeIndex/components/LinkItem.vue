@@ -6,7 +6,13 @@
           <div class="LinkItemLeft">
             <h2 v-text="item.linkTitle"></h2>
             <p class="linkTxt"><span v-text="item.linkUrl"></span><span v-if="item.linkPwa" v-text="'密码：' + item.linkPwa" style="color: #515A6E"></span></p>
-            <p class="authorTxt"><span v-text="'作者：' + item.linkAuthor"></span><span v-text="'类别：' + item.linkClass"></span><span v-text="'时间：' + item.linkTime"></span></p>
+            <p class="authorTxt">
+              <span v-text="item.linkAuthor"></span>
+              <span v-text="item.linkClass"></span>
+              <span v-text="timestampToTime(item.linkTime)"></span>
+              <span v-text="'点赞：' + item.linkPraise"></span>
+              <span v-text="'差评：' + item.linkReport"></span>
+            </p>
           </div>
           <div class="LinkItemRight">
             <a :href="item.url" target="_blank">
@@ -17,19 +23,33 @@
     </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   name: "LinkItem",
   data() {
     return {
-      linkListArr: []
+      linkListArr: [],
+      linkSearch: ""
     };
+  },
+  computed: {
+    ...mapState(["searchParam"]),
+    searchListParam() {
+      return this.searchParam;
+    }
+  },
+  watch: {
+    searchListParam() {
+      this.linkSearch = this.searchListParam;
+      this.linkListData();
+    }
   },
   methods: {
     linkListData() {
       this.$ajax
         .get("/gxyundata/getlinkdata", {
           params: {
-            linkSearch: "",
+            linkSearch: this.linkSearch,
             linkAuthor: "",
             order: "",
             page: 0,
@@ -42,12 +62,31 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    timestampToTime(timestamp) {
+      var date = new Date(timestamp); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+      var Y = date.getFullYear() + "-";
+      var M =
+        (date.getMonth() + 1 < 10
+          ? "0" + (date.getMonth() + 1)
+          : date.getMonth() + 1) + "-";
+      var D = change(date.getDate()) + " ";
+      var h = change(date.getHours()) + ":";
+      var m = change(date.getMinutes());
+      return Y + M + D + h + m;
     }
   },
   mounted() {
     this.linkListData();
   }
 };
+function change(t) {
+  if (t < 10) {
+    return "0" + t;
+  } else {
+    return t;
+  }
+}
 </script>
 <style lang="scss" scoped>
 .LinkList {
@@ -56,7 +95,7 @@ export default {
     padding: 16px 36px 12px 26px;
     margin: 12px 0;
     border-radius: 6px;
-    box-shadow: 0px 0px 5px 1px #aaa;
+    box-shadow: 0px 0px 2px 1px #aaa;
     position: relative;
     &:hover {
       box-shadow: 0px 0px 5px 1px #ff6666 inset;
@@ -89,7 +128,7 @@ export default {
     }
     .LinkItemLeft {
       margin-left: 80px;
-      margin-right: 100px;
+      margin-right: 70px;
       h2 {
         font-size: 20px;
         line-height: 20px;
@@ -115,7 +154,7 @@ export default {
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         span {
-          margin-right: 8px;
+          margin-right: 6px;
         }
       }
       .authorTxt {

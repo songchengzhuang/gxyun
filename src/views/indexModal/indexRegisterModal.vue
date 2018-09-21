@@ -63,6 +63,11 @@ export default {
             this.$Message.info("注册成功！");
             this.loading = false;
             this.modalShow = false;
+            this.regName = "";
+            this.regAge = "";
+            this.regSex = "";
+            this.regPwa = "";
+            this.regIsPwa = "";
             return false;
           }
           if (res.data.code === 200 && res.data.success === false) {

@@ -1,4 +1,5 @@
 var query = require("../../config/sqlConfig");
+var md5 = require("md5-node"); // md5加密
 
 exports.postRegUser = function(req, res) {
   console.log("************* 用 户 注 册 **************");
@@ -46,7 +47,7 @@ exports.postRegUser = function(req, res) {
       req.body.userName,
       req.body.userAge - 0,
       req.body.userSex,
-      req.body.userPwa,
+      md5(req.body.userPwa),
       regTime
     ];
     query(addSql, addSqlParArr, function(err) {

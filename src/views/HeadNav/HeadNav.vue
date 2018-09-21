@@ -30,6 +30,7 @@
       </Header>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "HeadNav",
   data() {
@@ -38,25 +39,11 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["actSearchList"]),
     // 搜索云链接
     searchYunLink() {
       if (this.searchLink) {
-        this.$ajax
-          .get("/gxyundata/getlinkdata", {
-            params: {
-              linkSearch: this.searchLink,
-              linkAuthor: "",
-              order: "",
-              page: 0,
-              pageSize: 20
-            }
-          })
-          .then(res => {
-            this.$emit("searchList", res.data.data);
-          })
-          .catch(error => {
-            console.log(error);
-          });
+        this.actSearchList(this.searchLink);
       }
     },
     writeLinkModal(type) {

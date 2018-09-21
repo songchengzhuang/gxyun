@@ -13,7 +13,8 @@ exports.getLinkData = function(req, res) {
   var linkTitleSearch = "%" + req.query.linkSearch + "%";
   // 初始化列表
   if (!req.query.linkSearch && !req.query.linkAuthor) {
-    var getLinkSql = "SELECT * FROM link_list limit ?,?";
+    var getLinkSql =
+      "SELECT * FROM link_list ORDER BY linkTime*1 DESC limit ?,?";
     var getLinkArr = [req.query.page - 0, req.query.pageSize - 0];
   }
   // 搜索列表
