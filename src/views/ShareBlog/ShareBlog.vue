@@ -19,7 +19,7 @@ export default {
           params: {
             userName: "",
             page: 0,
-            pageSize: 10
+            pageSize: 100
           }
         })
         .then(res => {

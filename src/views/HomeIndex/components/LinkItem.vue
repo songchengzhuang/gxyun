@@ -15,7 +15,7 @@
             </p>
           </div>
           <div class="LinkItemRight">
-            <a :href="item.url" target="_blank">
+            <a :href="item.linkUrl" target="_blank">
               <Icon type="ios-link" size="42" color="#e6e6e6"></Icon>
             </a>
           </div>
