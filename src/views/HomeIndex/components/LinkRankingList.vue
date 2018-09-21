@@ -2,9 +2,9 @@
     <!-- 链接item -->
     <ul class="linkRankingList">
         <li v-for="(item, index) in linkListArr" :key="index">
-          <a :href="item.url" target="_blank">
-            <p class="linkTit"><span>{{index+1}}.</span>{{item.title}}</p>
-            <p class="linkAuthor"><span v-text="'———— ' + item.author"></span></p>
+          <a :href="item.linkUrl" target="_blank">
+            <p class="linkTit"><span>{{index+1}}.</span>{{item.linkTitle}}</p>
+            <p class="linkAuthor"><span v-text="'———— ' + item.linkAuthor"></span></p>
           </a>
         </li>
     </ul>
@@ -14,63 +14,31 @@ export default {
   name: "linkRankingList",
   data() {
     return {
-      linkListArr: [
-        {
-          url: "https://pan.baidu.com/s/1M11eMos98td7QBjusA6wiQ",
-          pwa: "",
-          title: "Vue.js 源码全方位深入解析",
-          author: "乘风追月"
-        },
-        {
-          url: "https://pan.baidu.com/s/1NFGRdOx9lDTwCZQdh1raAA",
-          pwa: "q0a3",
-          title: "前端完整学习资料",
-          author: "爱学习的笨蛋"
-        },
-        {
-          url: "https://pan.baidu.com/s/16b_bfqeSGyLimqjXV-8UwA",
-          pwa: "",
-          title: "打造扛得住的MySQL数据库架构",
-          author: "夜星空"
-        },
-        {
-          url: "https://pan.baidu.com/s/1JD3_68LRBRBGsiycUrx3MQ",
-          pwa: "",
-          title: "BAT各大公司面试题",
-          author: "知乎其微"
-        },
-        {
-          url: "https://pan.baidu.com/s/13wrlboqorOMjjaI0dZDTwQ",
-          pwa: "",
-          title: "HTML5与CSS3实现动态网页系列课程",
-          author: "小Q"
-        },
-        {
-          url: "https://pan.baidu.com/s/1bxAttYbO9zPFQzwPa5QwdQ",
-          pwa: "",
-          title: "Androad 架构",
-          author: "爱学习的笨蛋"
-        },
-        {
-          url: "https://pan.baidu.com/s/1Jawtn8MdDHa16gyifOvrBg",
-          pwa: "",
-          title: "ES6零基础教学 解析彩票项目",
-          author: "小万酱"
-        },
-        {
-          url: "https://pan.baidu.com/s/1-iu1gU416aphMjSVYTRMfw",
-          pwa: "",
-          title: "2019前端跳槽面试必备技巧",
-          author: "奔跑的小前端"
-        },
-        {
-          url: "https://pan.baidu.com/s/1MYj-2Idw007zTYIFRbnmaA",
-          pwa: "",
-          title: "网易云python",
-          author: "洛雨美"
-        }
-      ]
+      linkListArr: []
     };
+  },
+  methods: {
+    linkListDESC() {
+      this.$ajax
+        .get("/gxyundata/getlinkdata", {
+          params: {
+            linkSearch: "",
+            linkAuthor: "",
+            order: "DESC",
+            page: 0,
+            pageSize: 8
+          }
+        })
+        .then(res => {
+          this.linkListArr = res.data.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  },
+  mounted() {
+    this.linkListDESC();
   }
 };
 </script>

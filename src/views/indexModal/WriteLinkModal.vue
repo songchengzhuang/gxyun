@@ -82,6 +82,10 @@ export default {
             this.$Message.info("感谢您的分享！");
             this.loading = false;
             this.modalShow = false;
+            this.linkTitle = "";
+            this.linkUrl = "";
+            this.linkPwa = "";
+            this.linkClass = [];
             return false;
           }
           if (res.data.code === 200 && res.data.success === false) {

@@ -27,9 +27,16 @@ export default {
   methods: {
     linkListData() {
       this.$ajax
-        .get("/gxyundata/getlinkdata")
+        .get("/gxyundata/getlinkdata", {
+          params: {
+            linkSearch: "",
+            linkAuthor: "",
+            order: "",
+            page: 0,
+            pageSize: 10
+          }
+        })
         .then(res => {
-          console.log(res.data.data); // node的返回的数据在data中
           this.linkListArr = res.data.data;
         })
         .catch(error => {
