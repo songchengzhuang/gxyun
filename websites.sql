@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-09-20 07:24:41
+-- Generation Time: 2018-09-21 10:34:00
 -- 服务器版本： 5.7.21
 -- PHP Version: 5.6.35
 
@@ -42,14 +42,24 @@ CREATE TABLE IF NOT EXISTS `link_list` (
   `linkShow` int(10) NOT NULL,
   `linkTime` bigint(16) DEFAULT NULL,
   PRIMARY KEY (`linkId`)
-) ENGINE=InnoDB AUTO_INCREMENT=10002 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10012 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `link_list`
 --
 
 INSERT INTO `link_list` (`linkId`, `linkTitle`, `linkUrl`, `linkPwa`, `linkClass`, `userId`, `linkAuthor`, `linkPraise`, `linkReport`, `linkShow`, `linkTime`) VALUES
-(10001, 'Vue.js 源码全方位深入解析', 'https://pan.baidu.com/s/1M11eMos98td7QBjusA6wiQ', '', 'HTML5,Vue,Webpack', 100007, '冬梅', '0', '0', 1, 1537428097635);
+(10001, 'Vue.js 源码全方位深入解析', 'https://pan.baidu.com/s/1M11eMos98td7QBjusA6wiQ', '', 'HTML5,Vue,Webpack', 100007, '冬梅', '0', '0', 1, 1537428097635),
+(10002, '前端完整学习资料', 'https://pan.baidu.com/s/1NFGRdOx9lDTwCZQdh1raAA', 'q0a3', 'Vue,CSS3,HTML5,Node', 100005, 'scz', '0', '0', 1, 1537430585456),
+(10003, '打造扛得住的MySQL数据库架构', 'https://pan.baidu.com/s/16b_bfqeSGyLimqjXV-8UwA', '', 'CSS3,HTML5,Vue,Node', 100005, 'scz', '56', '5', 1, 1537430657621),
+(10004, 'BAT各大公司面试题', 'https://pan.baidu.com/s/1JD3_68LRBRBGsiycUrx3MQ', '', 'CSS3,HTML5,Vue,Node', 100005, 'scz', '0', '0', 1, 1537430677177),
+(10005, 'Google资深工程师深度讲解Go语言', 'https://pan.baidu.com/s/1S9iN47ijRcHQhJIH7egirw', '', 'Webpack,Angular,React', 100005, 'scz', '99', '5', 1, 1537430730918),
+(10006, 'Angular4.0从入门到实践', 'https://pan.baidu.com/s/1Cz8M4T0SAuKZAN4et3JXVw', 'kol3', 'Webpack,Angular', 100005, 'scz', '32', '12', 1, 1537430759384),
+(10007, 'HTML5与CSS3实现动态网页系列课程', 'https://pan.baidu.com/s/13wrlboqorOMjjaI0dZDTwQ', '', 'Webpack,Vue,CSS3,HTML5', 100002, '小明3', '0', '0', 1, 1537430802789),
+(10008, 'Vue2.0+Node.js+MongoDB全栈打造商城系统', 'https://pan.baidu.com/s/14snUMWqnzRZNWBJGi-pHQA', '', 'Webpack,Vue,CSS3', 100002, '小明3', '128', '15', 1, 1537430827633),
+(10009, 'Vue.js 源码全方位深入解析', 'https://pan.baidu.com/s/1M11eMos98td7QBjusA6wiQ', '', 'HTML5,Vue,Webpack', 100007, '冬梅', '7', '1', 1, 1537428097635),
+(10010, 'scz', 'scz', 'scz', 'HTML5,CSS3,Vue', 100018, '小明', '0', '0', 1, 1537509830030),
+(10011, '王庆', '123', '1234', 'HTML5,Vue,Node', 100022, '王庆', '0', '0', 1, 1537525483714);
 
 -- --------------------------------------------------------
 
@@ -66,20 +76,20 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
   `userPwa` varchar(40) NOT NULL,
   `regTime` bigint(16) DEFAULT NULL,
   PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=100016 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=100023 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `reg_user`
 --
 
 INSERT INTO `reg_user` (`userId`, `userName`, `userAge`, `userSex`, `userPwa`, `regTime`) VALUES
-(100002, '小明3', '23', '女', '123456', 1537264387093),
-(100005, 'scz', '23', '男', 'aabbCC', 1537341333834),
-(100007, '冬梅', '24', '女', '123', 1537342080823),
-(100012, 'scz11', '22', '男', 'qwe', 1537342593358),
-(100013, 'scz3', '22', '男', 'qwe', 1537342601901),
-(100014, 'adad', '21', '女', 'qaz', 1537345158510),
-(100015, ' d打我', '21', '女', 'ert123', 1537345455095);
+(100016, '小红', '21', '女', '46f94c8de14fb36680850768ff1b7f2a', 1537508425288),
+(100017, 'scz', '23', '男', 'c8837b23ff8aaa8a2dde915473ce0991', 1537509253222),
+(100018, '小明', '22', '男', '202cb962ac59075b964b07152d234b70', 1537509742635),
+(100019, '123', '21', '女', '202cb962ac59075b964b07152d234b70', 1537510546689),
+(100020, '学习前端哈', '22', '男', '202cb962ac59075b964b07152d234b70', 1537515518692),
+(100021, '12345678', '11', '女', 'caf1a3dfb505ffed0d024130f58c5cfa', 1537515815152),
+(100022, '王庆', '18', '女', 'e10adc3949ba59abbe56e057f20f883e', 1537525444749);
 
 -- --------------------------------------------------------
 
