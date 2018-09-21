@@ -23,7 +23,6 @@ export default {
           }
         })
         .then(res => {
-          console.log(res.data.data); // node的返回的数据在data中
           this.userList = res.data.data;
         })
         .catch(error => {

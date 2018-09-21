@@ -20,12 +20,17 @@
               <p class="navMotto">山不在高，有仙则名。水不在深，有龙则灵。</p>
               <div class="userLogin">
                 <span class="shareBtn" @click="writeLinkModal('linkModa')"><Icon type="ios-pricetags-outline" size="16"></Icon>我的分享</span>
-                <span class="loginBtn">
+                <span class="loginBtn" v-if="!userData">
                   <span @click="writeLinkModal('loginModa')"><Icon type="ios-redo-outline" size="16"></Icon>登录</span> | 
                   <span @click="writeLinkModal('registerModa')"><Icon type="social-octocat" size="16"></Icon>注册</span>
                 </span>
+                <span class="loginUser" v-if="userData">
+                  <Icon type="female" size="16"></Icon>
+                  <Icon type="male" size="16"></Icon>
+                  <span v-text="userData.userName"></span>
+                </span>
               </div>
-              <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 260px"></Input>
+              <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-enter="searchYunLink" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 260px"></Input>
           </Menu>
       </Header>
 </template>
@@ -35,20 +40,28 @@ export default {
   name: "HeadNav",
   data() {
     return {
-      searchLink: ""
+      searchLink: "",
+      userData: ""
     };
   },
   methods: {
     ...mapActions(["actSearchList"]),
     // 搜索云链接
     searchYunLink() {
-      if (this.searchLink) {
-        this.actSearchList(this.searchLink);
-      }
+      this.actSearchList(this.searchLink);
     },
     writeLinkModal(type) {
       this.$emit("writeLinkModal", type);
+    },
+    // 是否登录
+    isUserLogin() {
+      let userPwa = localStorage.getItem("reg_gxy_user_pwa");
+      let linkAuthor = localStorage.getItem("reg_gxy_user_name");
+      this.userData = JSON.parse(localStorage.getItem(userPwa + linkAuthor));
     }
+  },
+  mounted() {
+    this.isUserLogin();
   }
 };
 </script>
@@ -120,6 +133,8 @@ export default {
       &:hover {
         color: #515a6e;
       }
+    }
+    .loginUser {
     }
   }
 }
