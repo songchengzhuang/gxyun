@@ -95,7 +95,7 @@ function change(t) {
 .LinkList {
   padding: 16px 20px;
   .LinkItem {
-    padding: 16px 30px 12px 16px;
+    padding: 16px 30px 12px 20px;
     margin: 12px 0;
     border-radius: 6px;
     box-shadow: 0px 0px 2px 1px #aaa;
@@ -146,7 +146,7 @@ function change(t) {
       }
     }
     .LinkItemLeft {
-      margin-left: 85px;
+      margin-left: 90px;
       margin-right: 70px;
       h2 {
         font-size: 20px;
