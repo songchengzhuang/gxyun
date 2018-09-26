@@ -21,7 +21,7 @@
           </div>
           <div class="LinkItemRight">
             <a v-if="isLogin" :href="item.linkUrl" target="_blank">
-              <Icon type="ios-link" size="42" color="#e6e6e6"></Icon>
+              <Icon type="ios-link" size="42" color="#6c7893"></Icon>
             </a>
             <Icon v-if="!isLogin" type="ios-link" size="42" color="#f2f2f2"></Icon>
           </div>
