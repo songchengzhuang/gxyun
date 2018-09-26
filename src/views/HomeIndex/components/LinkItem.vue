@@ -14,15 +14,16 @@
               <span class="authorSpan" v-text="item.linkAuthor"></span>
               <span class="timeSpan" v-text="timestampToTime(item.linkTime)"></span>
               <span class="praiseSpan">
-                <span><Icon type="ios-thumbsup" />{{item.linkPraise}}</span>
-                <span><Icon type="ios-thumbsdown"></Icon>{{item.linkReport}}</span>
+                <span><Icon type="ios-thumbsup" /> {{item.linkPraise}}</span>
+                <span><Icon type="ios-thumbsdown"></Icon> {{item.linkReport}}</span>
               </span>
             </p>
           </div>
           <div class="LinkItemRight">
-            <a :href="item.linkUrl" target="_blank">
+            <a v-if="isLogin" :href="item.linkUrl" target="_blank">
               <Icon type="ios-link" size="42" color="#e6e6e6"></Icon>
             </a>
+            <Icon v-if="!isLogin" type="ios-link" size="42" color="#f2f2f2"></Icon>
           </div>
         </div>
     </div>
@@ -41,6 +42,16 @@ export default {
     ...mapState(["searchParam"]),
     searchListParam() {
       return this.searchParam;
+    },
+    isLogin() {
+      if (
+        localStorage.getItem("reg_gxy_user_name") &&
+        localStorage.getItem("reg_gxy_user_id")
+      ) {
+        return true;
+      } else {
+        return false;
+      }
     }
   },
   watch: {
@@ -97,7 +108,7 @@ function change(t) {
 .LinkList {
   padding: 16px 20px;
   .LinkItem {
-    padding: 16px 30px 12px 20px;
+    padding: 16px 30px 10px 20px;
     margin: 12px 0;
     border-radius: 6px;
     box-shadow: 0px 0px 2px 1px #aaa;
@@ -217,7 +228,7 @@ function change(t) {
             color: #ff4f33;
           }
           span:last-child {
-            color: #ccc;
+            color: #8b94a7;
           }
         }
       }

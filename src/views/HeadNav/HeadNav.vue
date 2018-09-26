@@ -71,6 +71,7 @@ export default {
       localStorage.removeItem("reg_gxy_user_name");
       localStorage.removeItem(keyData);
       this.userData = "";
+      window.location.reload();
     }
   },
   mounted() {

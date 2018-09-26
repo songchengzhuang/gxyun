@@ -61,6 +61,7 @@ export default {
             this.loginName = "";
             this.loginPwa = "";
             this.$emit("loginUser");
+            window.location.reload();
             return false;
           }
           if (res.data.code === 200 && res.data.success === false) {
