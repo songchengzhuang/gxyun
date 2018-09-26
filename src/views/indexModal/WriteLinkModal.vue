@@ -134,6 +134,10 @@ export default {
         this.$Message.error("请填写云链接");
         return false;
       }
+      if (this.linkUrl < 6) {
+        this.$Message.error("云链接长度不能小于5位");
+        return false;
+      }
       if (this.linkClass.length < 1) {
         this.$Message.error("请选择类别");
         return false;

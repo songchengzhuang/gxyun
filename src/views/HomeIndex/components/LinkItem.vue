@@ -9,7 +9,7 @@
           </div>
           <div class="LinkItemLeft">
             <h2 v-text="item.linkTitle"></h2>
-            <p class="linkTxt"><span v-text="item.linkUrl"></span><span v-if="item.linkPwa" v-text="'密码：' + item.linkPwa" style="color: #515A6E"></span></p>
+            <p class="linkTxt"><span v-text="isLogin? item.linkUrl : item.linkUrl.slice(0,item.linkUrl.length-5)+'...'"></span><span v-if="item.linkPwa" v-text="' 密码：' + item.linkPwa" style="color: #515A6E"></span></p>
             <p class="authorTxt">
               <span class="authorSpan" v-text="item.linkAuthor"></span>
               <span class="timeSpan" v-text="timestampToTime(item.linkTime)"></span>
