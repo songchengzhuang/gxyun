@@ -11,7 +11,7 @@
             <Input class="linkInput" v-model="linkUrl" :maxlength="80" placeholder="请填写云链接" clearable style="width: 100%"></Input>
             <Input class="linkInput" v-model="linkPwa" :maxlength="12" placeholder="请填写云密码" clearable style="width: 100%"></Input>
             <Select class="linkInput" multiple v-model="linkClass" placeholder="请选择类别" style="width: 100%">
-                <Option v-for="item in classListData" :value="item.className" :key="item.classId">{{item.className}}</Option>
+                <Option v-for="item in classList" :value="item.className" :key="item.classId">{{item.className}}</Option>
             </Select>
         </div>
     </Modal>
@@ -26,13 +26,9 @@ export default {
       linkTitle: "",
       linkUrl: "",
       linkPwa: "",
+      classList: [],
       linkClass: []
     };
-  },
-  computed: {
-    classListData() {
-      return JSON.parse(sessionStorage.classList);
-    }
   },
   watch: {
     linkClass() {
@@ -54,6 +50,19 @@ export default {
         this.loading = true;
       });
       this.modalShow = true;
+    },
+    getClassList() {
+      this.$ajax
+        .get("/gxyundata/getLinkClass")
+        .then(res => {
+          this.classList = res.data.data;
+          if (typeof Storage !== "undefined") {
+            sessionStorage.classList = JSON.stringify(res.data.data);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
     },
     saveOk() {
       var isAudit = this.checkData();
@@ -130,6 +139,17 @@ export default {
         return false;
       }
       return true;
+    }
+  },
+  mounted() {
+    if (typeof Storage !== "undefined") {
+      if (!sessionStorage.classList) {
+        this.getClassList();
+      } else {
+        this.classList = JSON.parse(sessionStorage.classList);
+      }
+    } else {
+      this.getClassList();
     }
   }
 };

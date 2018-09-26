@@ -1,6 +1,6 @@
 <template>
     <ul class="LinkClass">
-        <li v-for="item in classList" :key="item">
+        <li v-for="item in classList" :key="item.classId">
           <p v-text="item.className"></p>
         </li>
     </ul>
