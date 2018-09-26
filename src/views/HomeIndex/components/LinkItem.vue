@@ -11,10 +11,12 @@
             <h2 v-text="item.linkTitle"></h2>
             <p class="linkTxt"><span v-text="item.linkUrl"></span><span v-if="item.linkPwa" v-text="'密码：' + item.linkPwa" style="color: #515A6E"></span></p>
             <p class="authorTxt">
-              <span v-text="item.linkAuthor"></span>
-              <span v-text="timestampToTime(item.linkTime)"></span>
-              <span v-text="'点赞：' + item.linkPraise"></span>
-              <span v-text="'差评：' + item.linkReport"></span>
+              <span class="authorSpan" v-text="item.linkAuthor"></span>
+              <span class="timeSpan" v-text="timestampToTime(item.linkTime)"></span>
+              <span class="praiseSpan">
+                <span><Icon type="ios-thumbsup" />{{item.linkPraise}}</span>
+                <span><Icon type="ios-thumbsdown"></Icon>{{item.linkReport}}</span>
+              </span>
             </p>
           </div>
           <div class="LinkItemRight">
@@ -198,7 +200,25 @@ function change(t) {
         color: #4285f4;
         span {
           display: inline-block;
-          margin-right: 22px;
+        }
+        .authorSpan {
+          margin-right: 26px;
+        }
+        .timeSpan {
+          color: #ccc;
+        }
+        .praiseSpan {
+          float: right;
+          span {
+            width: 76px;
+            margin-left: 12px;
+          }
+          span:first-child {
+            color: #ff4f33;
+          }
+          span:last-child {
+            color: #ccc;
+          }
         }
       }
     }

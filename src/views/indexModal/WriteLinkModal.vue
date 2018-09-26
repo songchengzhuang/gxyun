@@ -11,13 +11,7 @@
             <Input class="linkInput" v-model="linkUrl" :maxlength="80" placeholder="请填写云链接" clearable style="width: 100%"></Input>
             <Input class="linkInput" v-model="linkPwa" :maxlength="12" placeholder="请填写云密码" clearable style="width: 100%"></Input>
             <Select class="linkInput" multiple v-model="linkClass" placeholder="请选择类别" style="width: 100%">
-                <Option value="HTML5">HTML5</Option>
-                <Option value="CSS3">CSS3</Option>
-                <Option value="Vue">Vue</Option>
-                <Option value="React">React</Option>
-                <Option value="Angular">Angular</Option>
-                <Option value="Node">Node</Option>
-                <Option value="Webpack">Webpack</Option>
+                <Option v-for="item in classListData" :value="item.className" :key="item.classId">{{item.className}}</Option>
             </Select>
         </div>
     </Modal>
@@ -34,6 +28,11 @@ export default {
       linkPwa: "",
       linkClass: []
     };
+  },
+  computed: {
+    classListData() {
+      return JSON.parse(sessionStorage.classList);
+    }
   },
   watch: {
     linkClass() {

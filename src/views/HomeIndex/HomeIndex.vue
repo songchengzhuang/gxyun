@@ -89,7 +89,7 @@ export default {
       color: #000;
       text-align: center;
       margin: 27px 0;
-      text-shadow: 5px 5px 5px #ccc;
+      text-shadow: 3px 3px 3px #ccc;
     }
   }
 

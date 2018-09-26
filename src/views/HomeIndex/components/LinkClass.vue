@@ -1,7 +1,7 @@
 <template>
     <ul class="LinkClass">
         <li v-for="item in classList" :key="item">
-          <p v-text="item"></p>
+          <p v-text="item.className"></p>
         </li>
     </ul>
 </template>
@@ -10,20 +10,35 @@ export default {
   name: "LinkClass",
   data() {
     return {
-      classList: [
-        "JavaScript",
-        "HTML5",
-        "CSS3",
-        "JQuery",
-        "ES6",
-        "Vue",
-        "React",
-        "Angular",
-        "webpack",
-        "Node",
-        "Sass"
-      ]
+      classList: []
     };
+  },
+  methods: {
+    // 获取分类数据
+    getClassList() {
+      this.$ajax
+        .get("/gxyundata/getLinkClass")
+        .then(res => {
+          this.classList = res.data.data;
+          if (typeof Storage !== "undefined") {
+            sessionStorage.classList = JSON.stringify(res.data.data);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  },
+  mounted() {
+    if (typeof Storage !== "undefined") {
+      if (!sessionStorage.classList) {
+        this.getClassList();
+      } else {
+        this.classList = JSON.parse(sessionStorage.classList);
+      }
+    } else {
+      this.getClassList();
+    }
   }
 };
 </script>

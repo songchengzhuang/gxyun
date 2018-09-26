@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-09-21 10:34:00
+-- Generation Time: 2018-09-26 04:27:07
 -- 服务器版本： 5.7.21
 -- PHP Version: 5.6.35
 
@@ -25,6 +25,39 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `link_class`
+--
+
+DROP TABLE IF EXISTS `link_class`;
+CREATE TABLE IF NOT EXISTS `link_class` (
+  `classId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `className` varchar(40) NOT NULL,
+  PRIMARY KEY (`classId`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `link_class`
+--
+
+INSERT INTO `link_class` (`classId`, `className`) VALUES
+(101, 'Vue'),
+(102, 'React'),
+(103, 'Angular'),
+(104, 'Webpack'),
+(105, 'Node'),
+(106, 'HTML5'),
+(107, 'CSS3'),
+(108, 'JavaScript'),
+(109, 'ES6'),
+(110, 'Go'),
+(111, 'Git'),
+(112, 'JQuery'),
+(113, 'JAVA'),
+(114, '数据库');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `link_list`
 --
 
@@ -42,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `link_list` (
   `linkShow` int(10) NOT NULL,
   `linkTime` bigint(16) DEFAULT NULL,
   PRIMARY KEY (`linkId`)
-) ENGINE=InnoDB AUTO_INCREMENT=10012 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `link_list`
@@ -76,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
   `userPwa` varchar(40) NOT NULL,
   `regTime` bigint(16) DEFAULT NULL,
   PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=100023 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=100001 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `reg_user`
@@ -104,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `study_tbl` (
   `age` int(4) NOT NULL,
   `time_date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10042 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `study_tbl`
