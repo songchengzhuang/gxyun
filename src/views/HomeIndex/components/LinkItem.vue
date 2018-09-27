@@ -14,8 +14,8 @@
               <span class="authorSpan" v-text="item.linkAuthor"></span>
               <span class="timeSpan" v-text="timestampToTime(item.linkTime)"></span>
               <span class="praiseSpan">
-                <span><Icon type="ios-thumbsup" /> {{item.linkPraise}}</span>
-                <span><Icon type="ios-thumbsdown"></Icon> {{item.linkReport}}</span>
+                <span><Icon type="ios-thumbsup" /> 点赞 {{item.linkPraise}}</span>
+                <span><Icon type="ios-thumbsdown"></Icon> 差评 {{item.linkReport}}</span>
               </span>
             </p>
           </div>
