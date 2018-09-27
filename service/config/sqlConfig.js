@@ -4,7 +4,8 @@ var pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'scz123',
-    database: 'websites'
+    database: 'websites',
+    connectionLimit: 600
 })
 // 连接公用方法
 var query = function (sql, options, callback) {
