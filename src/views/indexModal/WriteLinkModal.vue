@@ -17,6 +17,7 @@
     </Modal>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "WriteLinkModal",
   data() {
@@ -38,6 +39,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(["actUseState"]),
     showModal() {
       var localkey =
         localStorage.getItem("reg_gxy_user_pwa") +
@@ -88,6 +90,7 @@ export default {
         .post("/gxyundata/postLinkData", linkObj)
         .then(res => {
           if (res.data.code === 200 && res.data.success === true) {
+            this.actUseState("分享" + new Date());
             this.$Message.info("感谢您的分享！");
             this.loading = false;
             this.modalShow = false;
@@ -134,7 +137,7 @@ export default {
         this.$Message.error("请填写云链接");
         return false;
       }
-      if (this.linkUrl < 6) {
+      if (this.linkUrl.length < 6) {
         this.$Message.error("云链接长度不能小于5位");
         return false;
       }

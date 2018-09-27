@@ -36,6 +36,7 @@
       </Header>
 </template>
 <script>
+import { mapState } from "vuex";
 import { mapActions } from "vuex";
 export default {
   name: "HeadNav",
@@ -45,8 +46,15 @@ export default {
       userData: ""
     };
   },
+  computed: {
+    ...mapState(["useState"]),
+    yunUseState() {
+      this.isUserLogin();
+      return this.useState;
+    }
+  },
   methods: {
-    ...mapActions(["actSearchList"]),
+    ...mapActions(["actSearchList", "actUseState"]),
     // 搜索云链接
     searchYunLink() {
       this.actSearchList(this.searchLink);
@@ -58,7 +66,11 @@ export default {
     isUserLogin() {
       let userPwa = localStorage.getItem("reg_gxy_user_pwa");
       let linkAuthor = localStorage.getItem("reg_gxy_user_name");
-      this.userData = JSON.parse(localStorage.getItem(userPwa + linkAuthor));
+      if (userPwa && linkAuthor) {
+        this.userData = JSON.parse(localStorage.getItem(userPwa + linkAuthor));
+      } else {
+        this.userData = "";
+      }
     },
     clearLocal() {
       localStorage.getItem("reg_gxy_user_pwa");
@@ -71,7 +83,7 @@ export default {
       localStorage.removeItem("reg_gxy_user_name");
       localStorage.removeItem(keyData);
       this.userData = "";
-      window.location.reload();
+      this.actUseState("注销");
     }
   },
   mounted() {

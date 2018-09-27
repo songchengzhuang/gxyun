@@ -38,6 +38,7 @@ export default {
   name: "LinkItem",
   data() {
     return {
+      isLogin: false,
       linkListArr: [],
       linkSearch: "",
       page: 0, // 从第几个开始
@@ -46,28 +47,41 @@ export default {
     };
   },
   computed: {
-    ...mapState(["searchParam"]),
+    ...mapState(["searchParam", "useState"]),
     searchListParam() {
       return this.searchParam;
     },
-    isLogin() {
-      if (
-        localStorage.getItem("reg_gxy_user_name") &&
-        localStorage.getItem("reg_gxy_user_id")
-      ) {
-        return true;
-      } else {
-        return false;
-      }
+    yunUseState() {
+      return this.useState;
     }
   },
   watch: {
     searchListParam() {
       this.linkSearch = this.searchListParam;
+      this.linkListArr = [];
       this.linkListData();
+    },
+    yunUseState() {
+      this.isLoginFn();
+      if (this.yunUseState.substr(0, 2) === "分享") {
+        this.page = 0;
+        this.pageSize = 10;
+        this.linkListArr = [];
+        this.linkListData();
+      }
     }
   },
   methods: {
+    isLoginFn() {
+      if (
+        localStorage.getItem("reg_gxy_user_name") &&
+        localStorage.getItem("reg_gxy_user_id")
+      ) {
+        this.isLogin = true;
+      } else {
+        this.isLogin = false;
+      }
+    },
     linkListData() {
       this.$ajax
         .get("/gxyundata/getlinkdata", {
@@ -80,6 +94,7 @@ export default {
           }
         })
         .then(res => {
+          this.moveTxt = true;
           this.linkListArr = this.linkListArr.concat(res.data.data);
           if (res.data.data.length < 10) {
             this.moveTxt = false;
@@ -109,6 +124,7 @@ export default {
   },
   mounted() {
     this.linkListData();
+    this.isLoginFn();
   }
 };
 function change(t) {

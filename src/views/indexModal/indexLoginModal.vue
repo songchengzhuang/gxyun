@@ -13,6 +13,7 @@
     </Modal>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "indexLogin",
   data() {
@@ -24,6 +25,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["actUseState"]),
     showModal() {
       this.$nextTick(() => {
         this.loading = true;
@@ -61,7 +63,7 @@ export default {
             this.loginName = "";
             this.loginPwa = "";
             this.$emit("loginUser");
-            window.location.reload();
+            this.actUseState("登录");
             return false;
           }
           if (res.data.code === 200 && res.data.success === false) {
