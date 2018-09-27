@@ -26,6 +26,10 @@
             <Icon v-if="!isLogin" type="ios-link" size="42" color="#f2f2f2"></Icon>
           </div>
         </div>
+        <p class="moveLink">
+          <span v-if="moveTxt" @click="movelinkList">点击加载更多...</span>
+          <span v-if="!moveTxt">我也是有底线的</span>
+        </p>
     </div>
 </template>
 <script>
@@ -35,7 +39,10 @@ export default {
   data() {
     return {
       linkListArr: [],
-      linkSearch: ""
+      linkSearch: "",
+      page: 0, // 从第几个开始
+      pageSize: 10, // 每次添加是10个
+      moveTxt: true
     };
   },
   computed: {
@@ -68,12 +75,15 @@ export default {
             linkSearch: this.linkSearch,
             linkAuthor: "",
             order: "",
-            page: 0,
-            pageSize: 10
+            page: this.page,
+            pageSize: this.pageSize
           }
         })
         .then(res => {
-          this.linkListArr = res.data.data;
+          this.linkListArr = this.linkListArr.concat(res.data.data);
+          if (res.data.data.length < 10) {
+            this.moveTxt = false;
+          }
         })
         .catch(error => {
           console.log(error);
@@ -90,6 +100,11 @@ export default {
       var h = change(date.getHours()) + ":";
       var m = change(date.getMinutes());
       return Y + M + D + h + m;
+    },
+    // 加载更多...
+    movelinkList() {
+      this.page += this.pageSize;
+      this.linkListData();
     }
   },
   mounted() {
@@ -248,6 +263,19 @@ function change(t) {
           color: #ccc !important;
         }
       }
+    }
+  }
+  .moveLink {
+    font-size: 14px;
+    line-height: 16px;
+    color: #f16543;
+    text-align: center;
+    margin-top: 30px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    span:hover {
+      color: #ff4f33;
+      font-weight: 600;
     }
   }
 }
