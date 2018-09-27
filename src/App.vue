@@ -10,6 +10,9 @@
   <write-link-modal ref="linkModa"></write-link-modal>
   <index-register-modal ref="registerModa"></index-register-modal>
   <index-login-modal ref="loginModa" @loginUser="loginUser"></index-login-modal>
+  <BackTop class="backTop" :bottom="150">
+    <div class="backTopClass">顶部</div>
+  </BackTop>
 </div>
 </template>
 <script>
@@ -62,5 +65,17 @@ export default {
 .layout > .ivu-layout {
   background: url(./assets/images/indexBg01.jpg);
   background-size: 33.5%;
+}
+.backTop {
+  .backTopClass {
+    padding: 15px;
+    background: rgba(0, 153, 229, 0.9);
+    color: #fff;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  &:hover {
+    box-shadow: 0px 0px 5px 3px #ccc;
+  }
 }
 </style>
