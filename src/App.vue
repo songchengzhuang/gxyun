@@ -36,6 +36,12 @@ export default {
     };
   },
   methods: {
+    enterPrompt() {
+      this.$Notice.success({
+        title: "小主，欢迎来到共享云",
+        desc: "登录后才能使用跳转功能呦！"
+      });
+    },
     writeLinkModal(type) {
       if (type === "linkModa") {
         this.$refs.linkModa.showModal();
@@ -50,6 +56,10 @@ export default {
     loginUser() {
       this.$refs.headNav.isUserLogin();
     }
+  },
+  mounted() {
+    // 提示
+    this.enterPrompt();
   }
 };
 </script>
