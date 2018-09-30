@@ -61,6 +61,8 @@ export default {
     searchListParam() {
       this.linkSearch = this.searchListParam;
       this.linkListArr = [];
+      this.page = 0;
+      this.pageSize = 10;
       this.linkListData();
     },
     yunUseState() {
@@ -100,11 +102,12 @@ export default {
           this.linkListArr = this.linkListArr.concat(res.data.data);
           if (this.linkListArr.length && res.data.data.length < 10) {
             this.moveTxt = false;
-            this.noDataLink = false;
           }
 
           if (this.linkListArr.length === 0 && res.data.data.length === 0) {
             this.noDataLink = true;
+          } else {
+            this.noDataLink = false;
           }
         })
         .catch(error => {
