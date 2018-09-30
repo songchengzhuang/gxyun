@@ -27,8 +27,9 @@
           </div>
         </div>
         <p class="moveLink">
-          <span v-if="moveTxt" @click="movelinkList">点击加载更多...</span>
-          <span v-if="!moveTxt">我也是有底线的</span>
+          <span v-if="moveTxt && !noDataLink" @click="movelinkList">更多资料在等你...</span>
+          <span v-if="!moveTxt && !noDataLink">亲，我也是有底线的</span>
+          <span v-if="noDataLink">暂无数据呢！</span>
         </p>
     </div>
 </template>
@@ -43,13 +44,14 @@ export default {
       linkSearch: "",
       page: 0, // 从第几个开始
       pageSize: 10, // 每次添加是10个
-      moveTxt: true
+      moveTxt: true,
+      noDataLink: false // 暂无数据
     };
   },
   computed: {
     ...mapState(["searchParam", "useState"]),
     searchListParam() {
-      return this.searchParam;
+      return this.searchParam.trim();
     },
     yunUseState() {
       return this.useState;
@@ -96,8 +98,13 @@ export default {
         .then(res => {
           this.moveTxt = true;
           this.linkListArr = this.linkListArr.concat(res.data.data);
-          if (res.data.data.length < 10) {
+          if (this.linkListArr.length && res.data.data.length < 10) {
             this.moveTxt = false;
+            this.noDataLink = false;
+          }
+
+          if (this.linkListArr.length === 0 && res.data.data.length === 0) {
+            this.noDataLink = true;
           }
         })
         .catch(error => {

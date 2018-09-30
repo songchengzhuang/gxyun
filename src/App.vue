@@ -39,7 +39,7 @@ export default {
     enterPrompt() {
       this.$Notice.success({
         title: "小主，欢迎来到共享云",
-        desc: "登录后才能使用跳转功能呦！"
+        desc: "登录后才能查看【完整链接】呦！"
       });
     },
     writeLinkModal(type) {

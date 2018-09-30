@@ -5,7 +5,7 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var logger = require("morgan");
 var ejs = require("ejs");
-var cors = require("cors");
+// var cors = require("cors");
 
 var indexRouter = require("./service/routes/index");
 var usersRouter = require("./service/routes/users");
@@ -13,7 +13,7 @@ var usersRouter = require("./service/routes/users");
 var app = express();
 
 // 跨域请求.注意，这个代码一定要，写在注册路由的前面。此模块也可以，当做路由中间件，指定某一个，或者某一部分路由，拥有跨域功能。
-app.use(cors());
+// app.use(cors());
 // 跨域请求
 // app.all('*', (req, res, next) => {
 //   res.header("Access-Control-Allow-Origin", "http://localhost:8080"); //为了跨域保持session，所以指定地址，不能用*
