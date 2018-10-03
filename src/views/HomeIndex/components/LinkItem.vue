@@ -9,7 +9,9 @@
       </div>
       <div class="LinkItemLeft">
         <h2 v-if="!isLogin" v-text="item.linkTitle"></h2>
-        <h2 v-if="isLogin"><a :href="item.linkUrl" target="_blank" v-text="item.linkTitle"></a></h2>
+        <a v-if="isLogin" :href="item.linkUrl" target="_blank">
+          <h2 v-text="item.linkTitle"></h2>
+        </a>
         <p class="linkTxt"><span v-text="isLogin? item.linkUrl : item.linkUrl.slice(0,item.linkUrl.length-5)+'...'"></span><span v-if="item.linkPwa" v-text="' 密码：' + item.linkPwa" style="color: #515A6E"></span></p>
         <p class="authorTxt">
           <span class="authorSpan" v-text="item.linkAuthor"></span>
