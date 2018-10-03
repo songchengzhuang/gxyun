@@ -16,7 +16,8 @@
           <span class="timeSpan" v-text="timestampToTime(item.linkTime)"></span>
           <span class="praiseSpan">
             <span>
-              <Icon type="ios-thumbs-up" size="16" /> {{item.linkPraise}}</span>
+              <Icon type="ios-thumbs-up" size="16" /> {{item.linkPraise}}
+            </span>
             <span>
               <Icon type="ios-thumbs-down" size="16" /> {{item.linkReport}}
             </span>
