@@ -39,7 +39,8 @@ export default {
     enterPrompt() {
       this.$Notice.success({
         title: "小主，欢迎来到共享云",
-        desc: "登录后才能查看【完整链接】呦！"
+        desc: "登录后才能查看【完整链接】呦！",
+        duration: 0
       });
     },
     writeLinkModal(type) {
