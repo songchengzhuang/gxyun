@@ -19,10 +19,10 @@
               </div>
               <p class="navMotto">山不在高，有仙则名。水不在深，有龙则灵。</p>
               <div class="userLogin">
-                <span class="shareBtn" @click="writeLinkModal('linkModa')"><Icon type="ios-pricetags-outline" size="16"></Icon>我的分享</span>
+                <span class="shareBtn" @click="writeLinkModal('linkModa')"><Icon type="md-create" size="16"></Icon>我的分享</span>
                 <span class="loginBtn" v-if="!userData">
-                  <span @click="writeLinkModal('loginModa')"><Icon type="ios-redo-outline" size="16"></Icon>登录</span> | 
-                  <span @click="writeLinkModal('registerModa')"><Icon type="social-octocat" size="16"></Icon>注册</span>
+                  <span @click="writeLinkModal('loginModa')"><Icon type="md-redo" size="16"></Icon>登录</span> | 
+                  <span @click="writeLinkModal('registerModa')"><Icon type="ios-thunderstorm-outline" size="16"></Icon>注册</span>
                 </span>
                 <span class="loginUser" v-if="userData">
                   <Icon class="sexIcon" v-if="userData.userSex === '女'" type="ios-female" size="16" color="#ff80aa"></Icon>

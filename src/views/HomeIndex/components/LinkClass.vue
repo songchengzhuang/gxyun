@@ -1,9 +1,9 @@
 <template>
-    <ul class="LinkClass">
-        <li v-for="item in classList" :key="item.classId">
-          <p v-text="item.className"></p>
-        </li>
-    </ul>
+  <ul class="LinkClass">
+    <li v-for="item in classList" :key="item.classId">
+      <p v-text="item.className"></p>
+    </li>
+  </ul>
 </template>
 <script>
 export default {
@@ -45,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 .LinkClass {
   background: #fff;
-  color: #0079c4;
+  color: #0366d6;
   margin-bottom: 16px;
   li {
     float: left;
@@ -58,7 +58,7 @@ export default {
     text-align: center;
     cursor: pointer;
     &:hover {
-      color: #d41b1b;
+      color: #fff;
       /* 渐变色 */
       background-image: -webkit-linear-gradient(
         top,

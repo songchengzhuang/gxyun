@@ -1,37 +1,41 @@
 <template>
-    <!-- 链接item -->
-    <div class="LinkList">
-        <div class="LinkItem" v-for="item in linkListArr" :key="item.linkId" v-if="item.linkShow">
-          <div class="linkImg" >
-            <div class="classNum">
-              <p v-for="itemClass in item.linkClass.split(',')" :key="itemClass" v-text="itemClass"></p>
-            </div>
-          </div>
-          <div class="LinkItemLeft">
-            <h2 v-text="item.linkTitle"></h2>
-            <p class="linkTxt"><span v-text="isLogin? item.linkUrl : item.linkUrl.slice(0,item.linkUrl.length-5)+'...'"></span><span v-if="item.linkPwa" v-text="' 密码：' + item.linkPwa" style="color: #515A6E"></span></p>
-            <p class="authorTxt">
-              <span class="authorSpan" v-text="item.linkAuthor"></span>
-              <span class="timeSpan" v-text="timestampToTime(item.linkTime)"></span>
-              <span class="praiseSpan">
-                <span><Icon type="ios-thumbsup" /> 点赞 {{item.linkPraise}}</span>
-                <span><Icon type="ios-thumbsdown"></Icon> 差评 {{item.linkReport}}</span>
-              </span>
-            </p>
-          </div>
-          <div class="LinkItemRight">
-            <a v-if="isLogin" :href="item.linkUrl" target="_blank">
-              <Icon type="ios-link" size="42" color="#6c7893"></Icon>
-            </a>
-            <Icon v-if="!isLogin" type="ios-link" size="42" color="#f2f2f2"></Icon>
-          </div>
+  <!-- 链接item -->
+  <div class="LinkList">
+    <div class="LinkItem" v-for="item in linkListArr" :key="item.linkId" v-if="item.linkShow">
+      <div class="linkImg">
+        <div class="classNum">
+          <p v-for="itemClass in item.linkClass.split(',')" :key="itemClass" v-text="itemClass"></p>
         </div>
-        <p class="moveLink">
-          <span v-if="moveTxt && !noDataLink" @click="movelinkList">更多资料在等你...</span>
-          <span v-if="!moveTxt && !noDataLink">亲，我也是有底线的</span>
-          <span v-if="noDataLink">暂无数据呢！</span>
+      </div>
+      <div class="LinkItemLeft">
+        <h2 v-if="!isLogin" v-text="item.linkTitle"></h2>
+        <h2 v-if="isLogin"><a :href="item.linkUrl" target="_blank" v-text="item.linkTitle"></a></h2>
+        <p class="linkTxt"><span v-text="isLogin? item.linkUrl : item.linkUrl.slice(0,item.linkUrl.length-5)+'...'"></span><span v-if="item.linkPwa" v-text="' 密码：' + item.linkPwa" style="color: #515A6E"></span></p>
+        <p class="authorTxt">
+          <span class="authorSpan" v-text="item.linkAuthor"></span>
+          <span class="timeSpan" v-text="timestampToTime(item.linkTime)"></span>
+          <span class="praiseSpan">
+            <span>
+              <Icon type="ios-thumbs-up" size="16" /> {{item.linkPraise}}</span>
+            <span>
+              <Icon type="ios-thumbs-down" size="16" /> {{item.linkReport}}
+            </span>
+          </span>
         </p>
+      </div>
+      <div class="LinkItemRight">
+        <a v-if="isLogin" :href="item.linkUrl" target="_blank">
+          <Icon type="ios-link" size="42" color="#6c7893"></Icon>
+        </a>
+        <Icon v-if="!isLogin" type="ios-link" size="42" color="#f2f2f2"></Icon>
+      </div>
     </div>
+    <p class="moveLink">
+      <span v-if="moveTxt && !noDataLink" @click="movelinkList">更多资料在等你...</span>
+      <span v-if="!moveTxt && !noDataLink">亲，我也是有底线的</span>
+      <span v-if="noDataLink">暂无数据呢！</span>
+    </p>
+  </div>
 </template>
 <script>
 import { mapState } from "vuex";
@@ -149,7 +153,7 @@ function change(t) {
 .LinkList {
   padding: 16px 20px;
   .LinkItem {
-    padding: 16px 30px 10px 20px;
+    padding: 12px 30px 6px 20px;
     margin: 12px 0;
     border-radius: 6px;
     box-shadow: 0px 0px 2px 1px #aaa;
@@ -248,7 +252,7 @@ function change(t) {
         -moz-transform-origin: 0 0; /* Firefox */
         -o-transform: scale(0.9); /* Opera */
         -o-transform-origin: 0 0;
-        line-height: 12px;
+        line-height: 18px;
         color: #4285f4;
         span {
           display: inline-block;
@@ -257,19 +261,36 @@ function change(t) {
           margin-right: 26px;
         }
         .timeSpan {
-          color: #ccc;
+          color: #999;
         }
         .praiseSpan {
           float: right;
           span {
-            width: 76px;
+            width: 66px;
             margin-left: 12px;
+            i {
+              padding: 0 3px 3px 0;
+              cursor: pointer;
+              &:hover {
+                font-size: 18px !important;
+              }
+            }
           }
           span:first-child {
             color: #ff4f33;
+            i {
+              &:hover {
+                color: #ff2300;
+              }
+            }
           }
           span:last-child {
             color: #8b94a7;
+            i {
+              &:hover {
+                color: #6e7991;
+              }
+            }
           }
         }
       }
