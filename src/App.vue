@@ -37,11 +37,17 @@ export default {
   },
   methods: {
     enterPrompt() {
-      this.$Notice.success({
-        title: "小主，欢迎来到共享云",
-        desc: "登录后才能查看【完整链接】呦！",
-        duration: 0
-      });
+      if (
+        !localStorage.getItem("reg_gxy_user_name") &&
+        !localStorage.getItem("reg_gxy_user_id") &&
+        !localStorage.getItem("reg_gxy_user_pwa")
+      ) {
+        this.$Notice.success({
+          title: "小主，欢迎来到共享云",
+          desc: "登录后才能查看【完整链接】呦！",
+          duration: 0
+        });
+      }
     },
     writeLinkModal(type) {
       if (type === "linkModa") {

@@ -1,14 +1,14 @@
 <template>
   <Modal v-model="modalShow" :loading="loading" title="欢迎加入共享云大家庭" ok-text="注册" @on-ok="saveOk" @on-cancel="cancel">
     <div class="fxLinkModal">
-      <Input class="regInput" :maxlength="8" v-model="regName" placeholder="请填写用户名" clearable style="width: 100%"></Input>
-      <Input class="regInput" :maxlength="3" v-model="regAge" placeholder="请填写年龄" clearable style="width: 100%"></Input>
+      <Input class="regInput" :maxlength="8" v-model="regName" @on-enter="saveOk" placeholder="请填写用户名" clearable style="width: 100%"></Input>
+      <Input class="regInput" :maxlength="3" v-model="regAge" @on-enter="saveOk" placeholder="请填写年龄" clearable style="width: 100%"></Input>
       <RadioGroup class="regInput regRadio" v-model="regSex">
         <Radio label="男"></Radio>
         <Radio label="女"></Radio>
       </RadioGroup>
-      <Input class="regInput" type="password" :maxlength="12" v-model="regPwa" placeholder="请填写密码" clearable style="width: 100%"></Input>
-      <Input class="regInput" type="password" :maxlength="12" v-model="regIsPwa" placeholder="请填写确认密码" clearable style="width: 100%"></Input>
+      <Input class="regInput" type="password" :maxlength="12" v-model="regPwa" @on-enter="saveOk" placeholder="请填写密码" clearable style="width: 100%"></Input>
+      <Input class="regInput" type="password" :maxlength="12" v-model="regIsPwa" @on-enter="saveOk" placeholder="请填写确认密码" clearable style="width: 100%"></Input>
     </div>
   </Modal>
 </template>
