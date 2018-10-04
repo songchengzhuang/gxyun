@@ -1,16 +1,10 @@
 <template>
-    <Modal
-        v-model="modalShow"
-        :loading="loading"
-        title="欢迎登录分享云"
-        ok-text="登录"
-        @on-ok="saveOk"
-        @on-cancel="cancel">
-        <div class="fxLinkModal">
-            <Input class="loginInput" v-model="loginName" :maxlength="6" placeholder="请填写用户名" clearable style="width: 100%"></Input>
-            <Input class="loginInput" type="password" :maxlength="12" v-model="loginPwa" placeholder="请填写密码" clearable style="width: 100%"></Input>
-        </div>
-    </Modal>
+  <Modal v-model="modalShow" :loading="loading" title="欢迎登录分享云" ok-text="登录" @on-ok="saveOk" @on-cancel="cancel">
+    <div class="fxLinkModal">
+      <Input class="loginInput" v-model="loginName" :maxlength="6" placeholder="请填写用户名" clearable style="width: 100%"></Input>
+      <Input class="loginInput" type="password" :maxlength="12" v-model="loginPwa" placeholder="请填写密码" clearable style="width: 100%"></Input>
+    </div>
+  </Modal>
 </template>
 <script>
 import { mapActions } from "vuex";
@@ -90,6 +84,12 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    // AutomaticLogin 注册后自动登录
+    AutomaticLogin(name, pwa) {
+      this.loginName = name;
+      this.loginPwa = pwa;
+      this.saveOk();
     },
     cancel() {
       // this.$Message.info("退出分享");

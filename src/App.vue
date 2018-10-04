@@ -3,17 +3,17 @@
     <Layout>
       <head-nav ref="headNav" @writeLinkModal="writeLinkModal"></head-nav>
       <keep-alive>
-        <router-view/>
+        <router-view />
       </keep-alive>
       <footer-index></footer-index>
-  </Layout>
-  <write-link-modal ref="linkModa"></write-link-modal>
-  <index-register-modal ref="registerModa"></index-register-modal>
-  <index-login-modal ref="loginModa" @loginUser="loginUser"></index-login-modal>
-  <BackTop class="backTop" :bottom="150">
-    <div class="backTopClass">顶部</div>
-  </BackTop>
-</div>
+    </Layout>
+    <write-link-modal ref="linkModa"></write-link-modal>
+    <index-register-modal ref="registerModa" @AutomaticLogin="AutomaticLogin"></index-register-modal>
+    <index-login-modal ref="loginModa" @loginUser="loginUser"></index-login-modal>
+    <BackTop class="backTop" :bottom="150">
+      <div class="backTopClass">顶部</div>
+    </BackTop>
+  </div>
 </template>
 <script>
 import HeadNav from "./views/HeadNav/HeadNav";
@@ -56,6 +56,10 @@ export default {
     },
     loginUser() {
       this.$refs.headNav.isUserLogin();
+    },
+    // 注册后自动登录
+    AutomaticLogin(name, pwa) {
+      this.$refs.loginModa.AutomaticLogin(name, pwa);
     }
   },
   mounted() {
