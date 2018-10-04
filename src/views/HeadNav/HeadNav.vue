@@ -1,39 +1,45 @@
 <template>
-    <!-- 导航 -->
-    <Header class="Header">
-          <Menu mode="horizontal" theme="dark" active-name="1">
-              <router-link class="layout-logo" tag="div" to="/"></router-link>
-              <div class="layout-nav">
-                  <MenuItem name="1">
-                    <router-link tag="span" to="/">
-                        <Icon type="ios-navigate"></Icon>
-                        <span>共享云</span>
-                    </router-link>
-                  </MenuItem>
-                  <MenuItem name="2">
-                    <router-link tag="div" to="/ShareBlog">
-                        <Icon type="ios-paper"></Icon>
-                        <span>博客云</span>
-                    </router-link>
-                  </MenuItem>
-              </div>
-              <p class="navMotto">山不在高，有仙则名。水不在深，有龙则灵。</p>
-              <div class="userLogin">
-                <span class="shareBtn" @click="writeLinkModal('linkModa')"><Icon type="md-create" size="16"></Icon>我的分享</span>
-                <span class="loginBtn" v-if="!userData">
-                  <span @click="writeLinkModal('loginModa')"><Icon type="md-redo" size="16"></Icon>登录</span> | 
-                  <span @click="writeLinkModal('registerModa')"><Icon type="ios-thunderstorm-outline" size="16"></Icon>注册</span>
-                </span>
-                <span class="loginUser" v-if="userData">
-                  <Icon class="sexIcon" v-if="userData.userSex === '女'" type="ios-female" size="16" color="#ff80aa"></Icon>
-                  <Icon class="sexIcon" v-if="userData.userSex === '男'" type="ios-male" size="16" color="#80aaff"></Icon>
-                  <span class="loginName" v-text="userData.userName"></span>
-                  <Icon class="loginClear" type="ios-power" size="18" @click="clearLocal"></Icon>
-                </span>
-              </div>
-              <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-enter="searchYunLink" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 260px"></Input>
-          </Menu>
-      </Header>
+  <!-- 导航 -->
+  <Header class="Header">
+    <Menu mode="horizontal" theme="dark" active-name="1">
+      <router-link class="layout-logo" tag="div" to="/"></router-link>
+      <div class="layout-nav">
+        <MenuItem name="1">
+        <router-link tag="span" to="/">
+          <Icon type="ios-navigate"></Icon>
+          <span>共享云</span>
+        </router-link>
+        </MenuItem>
+        <MenuItem name="2">
+        <router-link tag="div" to="/ShareBlog">
+          <Icon type="ios-paper"></Icon>
+          <span>博客云</span>
+        </router-link>
+        </MenuItem>
+      </div>
+      <p class="navMotto">山不在高，有仙则名。水不在深，有龙则灵。</p>
+      <div class="userLogin">
+        <span class="shareBtn" @click="writeLinkModal('linkModa')">
+          <Icon type="md-create" size="16"></Icon>我的分享
+        </span>
+        <span class="loginBtn" v-if="!userData">
+          <span @click="writeLinkModal('loginModa')">
+            <Icon type="md-redo" size="16"></Icon>登录
+          </span> |
+          <span @click="writeLinkModal('registerModa')">
+            <Icon type="ios-thunderstorm-outline" size="16"></Icon>注册
+          </span>
+        </span>
+        <span class="loginUser" v-if="userData">
+          <Icon class="sexIcon" v-if="userData.userSex === '女'" type="ios-female" size="16" color="#ff80aa"></Icon>
+          <Icon class="sexIcon" v-if="userData.userSex === '男'" type="ios-male" size="16" color="#80aaff"></Icon>
+          <span class="loginName" v-text="userData.userName"></span>
+          <Icon class="loginClear" type="ios-power" size="18" @click="clearLocal"></Icon>
+        </span>
+      </div>
+      <Input class="searchLink" v-model="searchLink" icon="ios-search" :maxlength="16" @on-enter="searchYunLink" @on-click="searchYunLink" placeholder="搜索云链接..." style="width: 260px"></Input>
+    </Menu>
+  </Header>
 </template>
 <script>
 import { mapState } from "vuex";
@@ -180,6 +186,34 @@ export default {
         }
       }
     }
+  }
+}
+// css3动画
+.layout-logo {
+  -webkit-animation: logoAnim 1.1s linear infinite alternate;
+  -o-animation: logoAnim 1.1s linear infinite alternate;
+  animation: logoAnim 1.1s linear infinite alternate;
+}
+@-webkit-keyframes logoAnim {
+  from {
+    opacity: 0.8;
+    -webkit-transform: scale(0.9, 0.9);
+    -ms-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes logoAnim {
+  from {
+    opacity: 0.8;
+    -webkit-transform: scale(0.9, 0.9);
+    -ms-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
+  }
+  to {
+    opacity: 1;
   }
 }
 
