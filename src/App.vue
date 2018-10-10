@@ -85,7 +85,7 @@ export default {
 
 .layout > .ivu-layout {
   background: url(./assets/images/indexBg01.jpg);
-  background-size: 33.5%;
+  background-size: 60%;
 }
 .backTop {
   .backTopClass {

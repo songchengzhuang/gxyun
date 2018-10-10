@@ -14,8 +14,8 @@
         <div class="siderRightDiv"></div>
         <h2>分类</h2>
         <link-class></link-class>
-        <advertis-unit :imgSrc="imgSrc01"></advertis-unit>
         <advertis-unit :imgSrc="imgSrc03" height="274px"></advertis-unit>
+        <advertis-unit :imgSrc="imgSrc01"></advertis-unit>
     </Sider>
 </Layout>
 </template>
