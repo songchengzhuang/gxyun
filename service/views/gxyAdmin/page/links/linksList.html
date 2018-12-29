@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册列表</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/font_class.css" media="all" />
+		<link rel="stylesheet" href="../../css/news.css" media="all" />
+	</head>
+	<body class="childrenBody">
+		<div id="listContainer">
+			<blockquote class="layui-elem-quote news_search">
+				<div class="layui-inline">
+					<div class="layui-input-inline">
+						<input type="text" value="" placeholder="请输入用户名" class="layui-input search_input">
+					</div>
+					<a class="layui-btn search_btn">查询</a>
+				</div>
+			</blockquote>
+			<div class="layui-form links_list">
+				<table class="layui-table">
+					<colgroup>
+						<col width="80">
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col width="13%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>用户ID</th>
+							<th>名称</th>
+							<th>年龄</th>
+							<th>性别</th>
+							<th>密码（MD5）</th>
+							<th>注册日期</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody class="links_content listInit" v-if='linkList.length'>
+						<tr v-for='item in linkList' :key='item.userId' v-cloak>
+							<td>{{item.userId}}</td>
+							<td>{{item.userName}}</td>
+							<td>{{item.userAge}}</td>
+							<td>{{item.userSex}}</td>
+							<td>{{item.userPwa}}</td>
+							<td>{{formatTime(item.regTime)}}</td>
+							<td>
+								<a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a>
+								<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="'+data[i].newsId+'"><i class="layui-icon">&#xe640;</i>
+									删除</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="page"></div>
+		</div>
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script type="text/javascript" src="../../js/common.js"></script>
+		<script src="../../layui/vue/vue.js"></script>
+		<script src="http://lib.baomitu.com/axios/0.19.0-beta.1/axios.min.js"></script>
+		<script type="text/javascript" src="linksList.js"></script>
+	</body>
+</html>

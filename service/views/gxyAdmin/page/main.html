@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>共享云后台管理</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../css/font_class.css" media="all" />
+	<link rel="stylesheet" href="../css/main.css" media="all" />
+</head>
+<body class="childrenBody">
+	<div class="panel_box row">
+		<div class="panel col max_panel">
+			<a href="javascript:;" data-url="page/news/newsList.html">
+				<div class="panel_icon" style="background-color:#2F4056;">
+					<i class="iconfont icon-text" data-icon="icon-text"></i>
+				</div>
+				<div class="panel_word allNews">
+					<span></span>
+					<em>文章总数</em>
+					<cite>文章列表</cite>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="sysNotice col">
+			<blockquote class="layui-elem-quote title">生僻字</blockquote>
+			<div class="layui-elem-quote layui-quote-nm">
+				<h3>生僻字</h3>
+				<p>* 我们中国的汉字，落笔成画留下五千年的历史</p>
+				<p>* 让世界都认识，我们中国的汉字，一撇一捺都是故事</p>
+				<p>* 跪举火把虔诚像道光，四方田地落谷成仓，古人象形声意辨恶良</p>
+				<br />
+				<p>* 魃(bá)魈(xiāo)魁(kuí)鬾(qí)魑(chī)魅(mèi)魍(wǎng)魉(liǎng)</p>
+				<p>* Wu又(yòu)双(shuāng)叒(ruò)叕(zhuó)</p>
+				<p>* Wu火(huǒ)炎(yán)焱(yàn)燚(yì)</p>
+				<p>* Wu水(shuǐ)沝(zhuǐ)淼(miǎo)㵘(màn)</p>
+				<p>* 㙓(kuí)</p>
+				<br />
+				<p>* 茕茕(qióng)孑(jié)立，沆(hàng)瀣(xiè)一气，踽踽(jǔ)独行，醍(tī)醐(hú)灌顶</p>
+				<p>* 绵绵瓜瓞(dié)，奉为圭(guī)臬(niè)，龙行龘龘(dá)，犄(jī)角旮(gā)旯(lá)</p>
+				<p>* 娉(pīng)婷袅(niǎo)娜(nuó)，涕(tī)泗(sì)滂(pāng)沱(tuó)</p>
+				<p>* 呶呶(náo)不休，不稂(làng)不莠(yǒu)，卬(áng)</p>
+				<p>* 咄(duō)嗟(jiē)蹀(dié)躞(xiè)耄(mào)耋(dié)饕(tāo)餮(tiè)</p>
+				<p>* 囹(líng)圄(yǔ)蘡(yīng)薁(yù)觊(jì)觎(yú)龃(jǔ)龉(yǔ)</p>
+				<p>* 狖(yòu)轭(è)鼯(wú)轩，怙(hù)恶不悛(quān)</p>
+				<p>* 其靁(léi)虺虺(huī)，腌(ā)臢(zā)孑(jié)孓(jué)</p>
+				<p>* 陟(zhì)罚臧(zāng)否(pǐ)，针砭(bīan)时弊，鳞次栉(zhì) 比，一张一翕(xī)</p>
+			</div>
+		</div>
+		<div class="sysNotice col">
+			<blockquote class="layui-elem-quote title">系统基本参数</blockquote>
+			<table class="layui-table">
+				<colgroup>
+					<col width="150">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr>
+						<td>当前版本</td>
+						<td class="version"></td>
+					</tr>
+					<tr>
+						<td>开发作者</td>
+						<td class="author"></td>
+					</tr>
+					<tr>
+						<td>网站首页</td>
+						<td class="homePage"></td>
+					</tr>
+					<tr>
+						<td>服务器环境</td>
+						<td class="server"></td>
+					</tr>
+					<tr>
+						<td>数据库版本</td>
+						<td class="dataBase"></td>
+					</tr>
+					<tr>
+						<td>最大上传限制</td>
+						<td class="maxUpload"></td>
+					</tr>
+					<tr>
+						<td>当前用户权限</td>
+						<td class="userRights"></td>
+					</tr>
+				</tbody>
+			</table>
+			<blockquote class="layui-elem-quote title">最新文章<i class="iconfont icon-new1"></i></blockquote>
+			<table class="layui-table" lay-skin="line">
+				<colgroup>
+					<col>
+					<col width="110">
+				</colgroup>
+				<tbody class="hot_news"></tbody>
+			</table> 
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../layui/layui.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+</body>
+</html>

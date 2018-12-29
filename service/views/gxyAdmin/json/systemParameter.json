@@ -1,0 +1,14 @@
+{
+    "cmsName": "共享云后台管理",
+    "version": "1.0.0",
+    "author": "layui",
+    "homePage": "page/index.html",
+    "server": "windows",
+    "dataBase": "MySql",
+    "maxUpload": "10",
+    "userRights": "超级管理员",
+    "description": "共享云-智慧共享",
+    "powerby": "百度云链接分享",
+    "record": "http://gxyun.sczgodofwar.top/",
+    "keywords": "layui-后台管理"
+}
